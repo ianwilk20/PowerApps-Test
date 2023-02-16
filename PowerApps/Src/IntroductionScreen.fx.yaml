@@ -361,7 +361,10 @@ IntroductionScreen As screen:
                                 ScreenSize.Large, 1,  
                                 1.25) 
                         )
-                    OnSelect: =
+                    OnSelect: |-
+                        =UpdateContext({locIntroLoading: true });
+                        Set(varCurrentLanguage,"en");
+                        Navigate('Dashboard Screen',ScreenTransition.Fade, {locInitLoad:true});
                     PaddingLeft: =6
                     PaddingRight: =3.42
                     PaddingTop: =4.10
