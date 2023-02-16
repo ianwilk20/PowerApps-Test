@@ -1,0 +1,435 @@
+cmp_GCThemeMenu As CanvasComponent:
+    ComponentHeight: =galMenu_GCTM.Height + If(!IsBlank(locShowSubMenu) And locShowSubMenu, galSubMenu_GCTM.Height + shpSubMenuItemLine_GCTM.Height, 0)
+    ContentWidth: =0
+    Fill: =RGBA(0, 0, 0, 0)
+    FontSizing: |-
+        =Table({CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:33, Char:"!", Size:0.36923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:32, Char:" ", Size:0.3475},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:34, Char:"""", Size:0.58461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:35, Char:"#", Size:0.86153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:36, Char:"$", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:37, Char:"%", Size:1.15},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:38, Char:"&", Size:0.98846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:39, Char:"'", Size:0.32692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:40, Char:"(", Size:0.42307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:41, Char:")", Size:0.42307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:42, Char:"*", Size:0.73076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:43, Char:"+", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:44, Char:",", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:45, Char:"-", Size:0.43076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:46, Char:".", Size:0.36923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:47, Char:"/", Size:0.52307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:48, Char:"0", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:49, Char:"1", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:50, Char:"2", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:51, Char:"3", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:52, Char:"4", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:53, Char:"5", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:54, Char:"6", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:55, Char:"7", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:56, Char:"8", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:57, Char:"9", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:58, Char:":", Size:0.36923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:59, Char:";", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:60, Char:"<", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:61, Char:"=", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:62, Char:">", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:63, Char:"?", Size:0.60769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:64, Char:"@", Size:1.2},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:65, Char:"A", Size:0.88461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:66, Char:"B", Size:0.88076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:67, Char:"C", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:68, Char:"D", Size:0.98076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:69, Char:"E", Size:0.74615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:70, Char:"F", Size:0.71153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:71, Char:"G", Size:0.96923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:72, Char:"H", Size:1.00384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:73, Char:"I", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:74, Char:"J", Size:0.4},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:75, Char:"K", Size:0.85384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:76, Char:"L", Size:0.72307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:77, Char:"M", Size:1.23076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:78, Char:"N", Size:1.04615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:79, Char:"O", Size:1.05},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:80, Char:"P", Size:0.82307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:81, Char:"Q", Size:1.05},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:82, Char:"R", Size:0.85},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:83, Char:"S", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:84, Char:"T", Size:0.75769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:85, Char:"U", Size:0.99230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:86, Char:"V", Size:0.83076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:87, Char:"W", Size:1.26153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:88, Char:"X", Size:0.83076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:89, Char:"Y", Size:0.79230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:90, Char:"Z", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:91, Char:"[", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:93, Char:"]", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:94, Char:"^", Size:0.71923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:95, Char:"_", Size:0.57307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:96, Char:"`", Size:0.79230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:97, Char:"a", Size:0.77692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:98, Char:"b", Size:0.83076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:99, Char:"c", Size:0.66153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:100, Char:"d", Size:0.83076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:101, Char:"e", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:102, Char:"f", Size:0.48461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:103, Char:"g", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:104, Char:"h", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:105, Char:"i", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:106, Char:"j", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:107, Char:"k", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:108, Char:"l", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:109, Char:"m", Size:1.27692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:110, Char:"n", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:111, Char:"o", Size:0.81538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:112, Char:"p", Size:0.83076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:113, Char:"q", Size:0.83076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:114, Char:"r", Size:0.57692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:115, Char:"s", Size:0.65},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:116, Char:"t", Size:0.52692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:117, Char:"u", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:118, Char:"v", Size:0.71538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:119, Char:"w", Size:1.09230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:120, Char:"x", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:121, Char:"y", Size:0.71538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:122, Char:"z", Size:0.63846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:123, Char:"{", Size:0.51538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:124, Char:"|", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:126, Char:"~", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:127, Char:"", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:128, Char:"€", Size:0.77692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:129, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:130, Char:"‚", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:131, Char:"ƒ", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:132, Char:"„", Size:0.61538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:133, Char:"…", Size:1.09230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:134, Char:"†", Size:0.68076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:135, Char:"‡", Size:0.69230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:136, Char:"ˆ", Size:0.8},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:137, Char:"‰", Size:1.65769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:138, Char:"Š", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:139, Char:"‹", Size:0.45},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:140, Char:"Œ", Size:1.26538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:141, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:142, Char:"Ž", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:143, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:144, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:145, Char:"‘", Size:0.25769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:146, Char:"’", Size:0.25769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:147, Char:"“", Size:0.53076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:148, Char:"”", Size:0.53076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:149, Char:"•", Size:0.50384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:150, Char:"–", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:151, Char:"—", Size:1.33461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:152, Char:"˜", Size:0.8},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:153, Char:"™", Size:1.01923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:154, Char:"š", Size:0.65},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:155, Char:"›", Size:0.45},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:156, Char:"œ", Size:1.28076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:157, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:158, Char:"ž", Size:0.63461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:159, Char:"Ÿ", Size:0.79230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:160, Char:" ", Size:0.35},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:161, Char:"¡", Size:0.36923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:162, Char:"¢", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:163, Char:"£", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:164, Char:"¤", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:165, Char:"¥", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:166, Char:"¦", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:167, Char:"§", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:168, Char:"¨", Size:0.79230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:169, Char:"©", Size:1.11153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:170, Char:"ª", Size:0.49230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:171, Char:"«", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:172, Char:"¬", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:174, Char:"®", Size:1.11153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:175, Char:"¯", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:176, Char:"°", Size:0.57307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:177, Char:"±", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:178, Char:"²", Size:0.48461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:179, Char:"³", Size:0.48461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:180, Char:"´", Size:0.79230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:181, Char:"µ", Size:0.85384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:182, Char:"¶", Size:0.87307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:183, Char:"·", Size:0.36923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:184, Char:"¸", Size:0.28846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:185, Char:"¹", Size:0.48461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:186, Char:"º", Size:0.50769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:187, Char:"»", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:188, Char:"¼", Size:1.10769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:189, Char:"½", Size:1.10769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:190, Char:"¾", Size:1.10769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:191, Char:"¿", Size:0.60769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:192, Char:"À", Size:0.88461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:193, Char:"Á", Size:0.88461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:194, Char:"Â", Size:0.88461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:195, Char:"Ã", Size:0.88461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:196, Char:"Ä", Size:0.88461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:197, Char:"Å", Size:0.88461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:198, Char:"Æ", Size:1.21923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:199, Char:"Ç", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:200, Char:"È", Size:0.74615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:201, Char:"É", Size:0.74615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:202, Char:"Ê", Size:0.74615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:203, Char:"Ë", Size:0.74615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:204, Char:"Ì", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:205, Char:"Í", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:206, Char:"Î", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:207, Char:"Ï", Size:0.40384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:208, Char:"Ð", Size:0.97692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:209, Char:"Ñ", Size:1.04615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:210, Char:"Ò", Size:1.05},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:211, Char:"Ó", Size:1.05},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:212, Char:"Ô", Size:1.05},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:213, Char:"Õ", Size:1.05},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:214, Char:"Ö", Size:1.05},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:215, Char:"×", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:216, Char:"Ø", Size:1.05},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:217, Char:"Ù", Size:0.99230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:218, Char:"Ú", Size:0.99230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:219, Char:"Û", Size:0.99230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:220, Char:"Ü", Size:0.99230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:221, Char:"Ý", Size:0.79230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:222, Char:"Þ", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:223, Char:"ß", Size:0.88846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:224, Char:"à", Size:0.77692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:225, Char:"á", Size:0.77692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:226, Char:"â", Size:0.77692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:227, Char:"ã", Size:0.77692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:228, Char:"ä", Size:0.77692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:229, Char:"å", Size:0.77692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:230, Char:"æ", Size:1.18461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:231, Char:"ç", Size:0.66153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:232, Char:"è", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:233, Char:"é", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:234, Char:"ê", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:235, Char:"ë", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:236, Char:"ì", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:237, Char:"í", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:238, Char:"î", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:239, Char:"ï", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:240, Char:"ð", Size:0.81153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:241, Char:"ñ", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:242, Char:"ò", Size:0.81538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:243, Char:"ó", Size:0.81538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:244, Char:"ô", Size:0.81538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:245, Char:"õ", Size:0.81538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:246, Char:"ö", Size:0.81538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:247, Char:"÷", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:248, Char:"ø", Size:0.81538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:249, Char:"ù", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:250, Char:"ú", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:251, Char:"û", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:252, Char:"ü", Size:0.84230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:253, Char:"ý", Size:0.71538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:254, Char:"þ", Size:0.83076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"600", Code:255, Char:"ÿ", Size:0.71538462})
+    Height: =56
+    isSubMenuVisible: =locShowSubMenu
+    MainMenuHeight: =galMenu_GCTM.Height
+    MenuFontSize: =12
+    MenuItems: |-
+        =Table({
+                Id:0,
+                Name: "Home",
+                Screen:App.ActiveScreen,
+                SubMenu: [
+                    {
+                        SubMenuId: 0,
+                        Name: "Demande de remboursement de frais de voyage",
+                        Link: "https://www.google.com/"
+                    },
+                    {
+                        SubMenuId: 1,
+                        Name: "Demande de remboursement de frais d'accueil",
+                        Screen: App.ActiveScreen
+                    }
+                ]
+            },
+            {
+                Id:1,
+                Name: "Enter a claim",
+                Screen:App.ActiveScreen,
+                SubMenu: [
+                {
+                    SubMenuId: 0,
+                    Name: "SM3"
+                },
+                {
+                    SubMenuId: 1,
+                    Name: "SM4"
+                },
+                {
+                    SubMenuId: 2,
+                    Name: "SM5"
+                },
+                {
+                    SubMenuId: 3,
+                    Name: "SM6"
+                }
+                ]
+            },
+            {
+                Id:2,
+                Name: "Settings",
+                Screen:App.ActiveScreen
+            },
+            {
+                Id:3,
+                Name: "Help",
+                Screen:App.ActiveScreen
+            }
+        )
+    onSelectNavigationLink: =true
+    ScreenWidthBreakpoints: |-
+        ={Small: 640, Medium: 900, Large: 1200}
+    SelectedMenuItem: =gblSelectedNavItemName
+    Width: =1920
+    X: =0
+    Y: =0
+    ZIndex: =2
+
+    lblContentWidthSizing_GCM As label:
+        Height: =1
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =0
+        Text: |-
+            =If(
+                cmp_GCThemeMenu.ContentWidth > Parent.ScreenWidthBreakpoints.Large,
+                ScreenSize.ExtraLarge,
+                If(
+                    cmp_GCThemeMenu.ContentWidth > Parent.ScreenWidthBreakpoints.Medium && cmp_GCThemeMenu.ContentWidth <= Parent.ScreenWidthBreakpoints.Large,
+                    ScreenSize.Large,
+                    If(
+                        cmp_GCThemeMenu.ContentWidth > Parent.ScreenWidthBreakpoints.Small && cmp_GCThemeMenu.ContentWidth <= Parent.ScreenWidthBreakpoints.Medium,
+                        ScreenSize.Medium,
+                        If(
+                            cmp_GCThemeMenu.ContentWidth <= Parent.ScreenWidthBreakpoints.Small,
+                            ScreenSize.Small
+                        )
+                    )
+                )
+            )
+        Visible: =false
+        Width: =1
+        X: =20
+        Y: =20
+        ZIndex: =1
+
+    lblScreenWidthSizing_GCM As label:
+        Height: =1
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =0
+        Text: |-
+            =If(
+                Parent.Width > Parent.ScreenWidthBreakpoints.Large,
+                ScreenSize.ExtraLarge,
+                If(
+                    Parent.Width > Parent.ScreenWidthBreakpoints.Medium && Parent.Width <= Parent.ScreenWidthBreakpoints.Large,
+                    ScreenSize.Large,
+                    If(
+                        Parent.Width > Parent.ScreenWidthBreakpoints.Small && Parent.Width <= Parent.ScreenWidthBreakpoints.Medium,
+                        ScreenSize.Medium,
+                        If(
+                            Parent.Width <= Parent.ScreenWidthBreakpoints.Small,
+                            ScreenSize.Small
+                        )
+                    )
+                )
+            )
+        Visible: =false
+        Width: =1
+        ZIndex: =2
+
+    lblLongestSubMenuItem_GCTM As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =1
+        Size: =btnLink_GCTM.Size
+        Text: |-
+            =First(
+                Sort(
+                    ForAll(
+                        LookUp(cmp_GCThemeMenu.MenuItems, Id = locCurrentMenu).SubMenu As item,
+                        {
+                            ID: item.Value.SubMenuId,
+                            Name: item.Value.Name,
+                            Len: Len(item.Value.Name)
+                        }
+                    ),
+                Len,
+                Descending
+                )
+            ).Name
+        Visible: =false
+        Width: =Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(cmp_GCThemeMenu.FontSizing, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight
+        Y: =Parent.Height
+        ZIndex: =3
+
+    lblLongestMenuItem_GCTM As label:
+        Height: =1
+        Size: =lblMenuItem_GCTM.Size
+        Text: |-
+            =First(
+                Sort(
+                    ForAll(
+                        cmp_GCThemeMenu.MenuItems As item,
+                        {
+                            ID: item.Id,
+                            Name: item.Name,
+                            Len: Len(item.Name)
+                        }
+                    ),
+                Len,
+                Descending
+                )
+            ).Name
+        Visible: =false
+        Width: =1
+        ZIndex: =4
+
+    shpBackground_GCTM As rectangle:
+        BorderColor: =RGBA(211, 212, 216, 1)
+        BorderThickness: =1
+        Fill: =RGBA(225, 228, 231, 1)
+        Height: =galMenu_GCTM.Height
+        Width: =Parent.Width
+        ZIndex: =5
+
+    shpSubMenuItemLine_GCTM As rectangle:
+        Fill: =RGBA(36, 56, 80, 1)
+        Height: =If(galSubMenu_GCTM.Height = 0, 0, 4)
+        Visible: =locShowSubMenu
+        Width: =galSubMenu_GCTM.Width
+        X: =galSubMenu_GCTM.X
+        Y: =galSubMenu_GCTM.Y + galSubMenu_GCTM.Height
+        ZIndex: =6
+
+    "galMenu_GCTM As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        Height: =56
+        Items: =cmp_GCThemeMenu.MenuItems
+        OnSelect: |-
+            =// If the table row has a submenu by default open the submenu
+            If(CountRows(ThisItem.SubMenu) > 0,
+                Select(imgSubMenu_GCTM),
+                Set(gblSelectedNavItemName, ThisItem.Name);
+                Set(locShowSubMenu, false);
+                Navigate(ThisItem.Screen, ScreenTransition.None);
+                cmp_GCThemeMenu.onSelectNavigationLink()
+            )
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: |-
+            =Sum(AddColumns(Split(lblLongestMenuItem_GCTM.Text, ""), "Size", LookUp(cmp_GCThemeMenu.FontSizing, CharFont=lblMenuItem_GCTM.Font && CharWeight=lblMenuItem_GCTM.FontWeight && Char = Result).Size), Size) * lblMenuItem_GCTM.Size + lblMenuItem_GCTM.PaddingLeft + lblMenuItem_GCTM.PaddingRight +
+            If(cmp_GCThemeMenu.ContentWidth, 
+                60 * Switch(Value(lblContentWidthSizing_GCM.Text),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 0.9,  
+                    1),
+                60 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 0.9,  
+                    1)
+            )
+        Width: |-
+            =If(cmp_GCThemeMenu.ContentWidth, 
+                cmp_GCThemeMenu.ContentWidth,
+                CountRows(Self.AllItems) * Self.TemplateWidth
+            )
+        X: |-
+            =If(cmp_GCThemeMenu.ContentWidth,
+                Parent.Width/2 - Self.Width/2,
+                (1 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                    ScreenSize.Small, Parent.Width/2 - (Parent.Width * 0.95)/2,  
+                    ScreenSize.Medium, Parent.Width/2 - (Parent.Width * 0.93)/2,
+                    Large, Parent.Width/2 - (Parent.Width * 0.7)/2,
+                    Parent.Width/2 - (Parent.Width * 0.54)/2)
+                )
+            )
+        ZIndex: =7
+
+        shpMenuItemBackground_GCTM As rectangle:
+            BorderColor: =RGBA(211, 212, 216, 1)
+            BorderThickness: =1
+            Fill: =shpBackground_GCTM.Fill
+            Height: =Parent.TemplateHeight
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+
+        imgSubMenu_GCTM As image:
+            Height: =Self.Width
+            Image: =chevron_down_blue
+            OnSelect: |
+                =/*If(
+                    locCurrentMenu = ThisItem.Id && locShowSubMenu,
+                    
+                    Set(locShowSubMenu, true);
+                    Set(locShowSubMenu, false),
+                    
+                    Set(locCurrentMenu, ThisItem.Id);
+                    Set(locShowSubMenu, false);
+                    Set(locShowSubMenu, true);
+                )*/
+                If(CountRows(ThisItem.SubMenu) > 0,
+                    Set(locCurrentMenu, ThisItem.Id);
+                    If(locShowSubMenu,
+                        Set(locShowSubMenu, false),
+                        Set(locShowSubMenu, true)
+                    ),
+                    Set(locShowSubMenu, false);
+                )
+            Visible: =CountRows(ThisItem.SubMenu) > 0
+            Width: |-
+                =If(cmp_GCThemeMenu.ContentWidth,
+                    15 * Switch(Value(lblContentWidthSizing_GCM.Text),  
+                        ScreenSize.Small, 0.5,  
+                        ScreenSize.Medium, 0.75,
+                        ScreenSize.Large, 0.9,  
+                        1),
+                    15 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                        ScreenSize.Small, 0.5,  
+                        ScreenSize.Medium, 0.75,
+                        ScreenSize.Large, 0.9,  
+                        1)
+                )
+            X: =lblMenuItem_GCTM.X + lblMenuItem_GCTM.Width + 5
+            Y: =lblMenuItem_GCTM.Y + lblMenuItem_GCTM.Height/2 - Self.Height/2
+            ZIndex: =2
+
+        lblMenuItem_GCTM As label:
+            Color: =RGBA(51, 80, 117, 1)
+            Height: =Parent.Height
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingTop: =0
+            Size: |
+                =If(cmp_GCThemeMenu.MenuFontSize > 0,
+                    cmp_GCThemeMenu.MenuFontSize,
+                    If(cmp_GCThemeMenu.ContentWidth,
+                        16 * Switch(Value(lblContentWidthSizing_GCM.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.65,
+                            ScreenSize.Large, 0.80,  
+                            1),
+                        16 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.65,
+                            ScreenSize.Large, 0.80,  
+                            1)
+                    )
+                )
+            Text: =ThisItem.Name
+            Width: |-
+                =//Len(Self.Text) * Self.Size
+                Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(cmp_GCThemeMenu.FontSizing, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight
+            X: =Parent.TemplateWidth/2 - (Self.Width + If(imgSubMenu_GCTM.Visible, imgSubMenu_GCTM.Width, 0))/2
+            Y: =Parent.TemplateHeight/2 - Self.Height/2
+            ZIndex: =3
+
+        btnAccessibleMenuItem_GCTM As button:
+            BorderColor: =RGBA(0,0,0,1)
+            BorderThickness: =0
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =RGBA(38, 55, 74, 1)
+            FocusedBorderThickness: |-
+                =2 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                        ScreenSize.Small, 0.5,  
+                        ScreenSize.Medium, 0.75,
+                        ScreenSize.Large, 0.9,  
+                        1)
+            Height: =Parent.TemplateHeight - (Self.FocusedBorderThickness * 2)
+            HoverFill: =Self.Fill
+            OnSelect: =Select(Parent)
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =0
+            Text: =ThisItem.Name
+            Width: =Parent.TemplateWidth - (Self.FocusedBorderThickness * 2)
+            X: =Parent.TemplateWidth/2 - Self.Width/2
+            Y: =Parent.TemplateHeight/2 - Self.Height/2
+            ZIndex: =4
+
+    "galSubMenu_GCTM As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(211, 212, 216, 1)
+        Height: =(CountRows(Self.AllItems) * Self.TemplateHeight)
+        Items: =galMenu_GCTM.Selected.SubMenu
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =If(!IsBlank(ThisItem.Value.Link), 
+                Set(locShowSubMenu, false);
+                Launch(ThisItem.Value.Link), 
+                
+                If(!IsBlank(ThisItem.Value.Screen), 
+                    Set(gblSelectedNavItemName, ThisItem.Value.Name);
+                    cmp_GCThemeMenu.onSelectNavigationLink();
+                    Set(locShowSubMenu, false);
+                    Navigate(ThisItem.Value.Screen),
+                    false
+                )
+            )
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =btnLink_GCTM.Height
+        Visible: =locShowSubMenu
+        Width: =lblLongestSubMenuItem_GCTM.Width + btnLink_GCTM.PaddingLeft + btnLink_GCTM.PaddingRight
+        X: =(galMenu_GCTM.TemplateWidth * galMenu_GCTM.Selected.Id) + galMenu_GCTM.X
+        Y: =galMenu_GCTM.Y + galMenu_GCTM.Height
+        ZIndex: =8
+
+        shpSubMenuBackground_GCTM As rectangle:
+            Fill: =btnLink_GCTM.Fill
+            Height: =Parent.TemplateHeight
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+
+        btnLink_GCTM As button:
+            Align: =Align.Left
+            BorderThickness: =0
+            Color: =RGBA(68, 94, 143, 1)
+            Fill: =RGBA(201, 207, 212, 1)
+            FocusedBorderColor: =RGBA(38, 55, 74, 1)
+            FocusedBorderThickness: |-
+                =2 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                        ScreenSize.Small, 0.5,  
+                        ScreenSize.Medium, 0.75,
+                        ScreenSize.Large, 0.9,  
+                        1)
+                    
+            Height: |-
+                =45 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                        ScreenSize.Small, 0.5,  
+                        ScreenSize.Medium, 0.75,
+                        ScreenSize.Large, 0.9,  
+                        1) - 
+                (Self.FocusedBorderThickness * 2)
+            HoverColor: =Self.Color
+            HoverFill: |-
+                =//RGBA(238, 239, 241, 1)
+                Self.Fill
+            OnSelect: =Select(Parent)
+            PaddingLeft: |-
+                =12 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                        ScreenSize.Small, 0.5,  
+                        ScreenSize.Medium, 0.75,
+                        ScreenSize.Large, 0.9,  
+                        1)
+            PressedColor: =Self.Color
+            PressedFill: =Self.HoverFill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: |-
+                =If(cmp_GCThemeMenu.MenuFontSize > 0,
+                    cmp_GCThemeMenu.MenuFontSize,
+                    If(cmp_GCThemeMenu.ContentWidth,
+                        16 * Switch(Value(lblContentWidthSizing_GCM.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.65,
+                            ScreenSize.Large, 0.80,  
+                            1),
+                        16 * Switch(Value(lblScreenWidthSizing_GCM.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.65,
+                            ScreenSize.Large, 0.80,  
+                            1)
+                    )
+                )
+            Text: =ThisItem.Value.Name
+            Width: =lblLongestSubMenuItem_GCTM.Width + Self.PaddingLeft
+            X: =Parent.TemplateWidth/2 - Self.Width/2
+            Y: =Parent.TemplateHeight/2 - Self.Height/2
+            ZIndex: =2
+

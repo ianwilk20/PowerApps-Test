@@ -1,0 +1,63 @@
+cmp_SpinnerClear As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    ScreenSize: =100
+    screenWidthSizing: =4
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    cntrLoadingClear As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.26)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: |-
+            =Average(12 * Switch(Value(cmp_SpinnerClear.screenWidthSizing),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 1,  
+                    1.25),
+                12 * Switch(cmp_SpinnerClear.ScreenSize,  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 1,  
+                    1.25) 
+            )
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: |-
+            =Average(25 * Switch(Value(cmp_SpinnerClear.screenWidthSizing),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 1,  
+                    1.25),
+                25 * Switch(cmp_SpinnerClear.ScreenSize,  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 1,  
+                    1.25) 
+            )
+        Width: =Parent.Width
+        ZIndex: =1
+
+        imgSpinnerClear As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =3
+            Height: =Self.Width
+            Image: ='Wedges-3s-400px'
+            Width: |-
+                =Average(120 * Switch(Value(cmp_SpinnerClear.screenWidthSizing), 
+                        ScreenSize.Small, 0.5,  
+                        ScreenSize.Medium, 0.75,
+                        ScreenSize.Large, 1,  
+                        1.25),
+                    120 * Switch(cmp_SpinnerClear.ScreenSize,  
+                        ScreenSize.Small, 0.5,  
+                        ScreenSize.Medium, 0.75,
+                        ScreenSize.Large, 1,  
+                        1.25) 
+                )
+            ZIndex: =1
+

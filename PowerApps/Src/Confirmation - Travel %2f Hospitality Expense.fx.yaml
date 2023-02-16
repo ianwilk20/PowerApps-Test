@@ -1,0 +1,424 @@
+"'Confirmation - Travel / Hospitality Expense' As screen":
+    OnHidden: =false
+    OnVisible: |-
+        =UpdateContext({locInitLoad: true, locLoading: false});
+        
+        If(locClaimType = "HOSPITALITY",
+            Office365Outlook.SendEmailV2(
+                gblFinanceEmail, 
+                LookUp(colTranslations, language.Value = "en" && key = "claim.submitted.email.notification.title").text & " / " & 
+                LookUp(colTranslations, language.Value = "fr" && key = "claim.submitted.email.notification.title").text,
+        
+                Concatenate( LookUp(colTranslations, language.Value = "en" && key = "hospitality.claim.approval.notification.body").text , 
+                "<br/><br/>=================================================================<br/><br/>",
+                LookUp(colTranslations, language.Value = "fr" && key = "hospitality.claim.approval.notification.body").text),
+                {
+                    Importance: "Normal"
+                }
+            )
+        )
+
+    canScrollableAreaSSTHE As fluidGrid.fluidGridWithBlankCard:
+        AcceptsFocus: =true
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Visible: =!locInitLoad
+        Width: =Parent.Width
+        X: =0.00
+        ZIndex: =3
+
+        canCanvasCardSSTHE As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =100
+            Visible: =true
+            Width: =Parent.Width
+            X: =0.00
+            Y: =2
+            ZIndex: =3
+
+            cmp_GCThemeFooterSSTHE As cmp_GCThemeFooter:
+                contactLinkEN: |-
+                    ="mailto:" & gblFinanceEmail
+                contactLinkFR: |-
+                    ="mailto:" & gblFinanceEmail
+                ContentWidth: =cntrPageBodySSTHE.Width
+                Height: |-
+                    =Average(85.77 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        85.77 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Language: =varCurrentLanguage
+                LinkFontSize: |-
+                    =Average(11.2 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        11.2 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Width: =Parent.Width
+                Y: |-
+                    =If(
+                        cntrPageBodySSTHE.Y + cntrPageBodySSTHE.Height + 
+                        Average(40 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            40 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        ) >= App.Height,
+                        cntrPageBodySSTHE.Y + cntrPageBodySSTHE.Height + 
+                        Average(40 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            40 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25)
+                        ),
+                        App.Height - Self.Height
+                    )
+
+            cntrPageBodySSTHE As groupContainer.verticalAutoLayoutContainer:
+                BorderColor: =RGBA(39, 113, 194, 1)
+                Height: =lblSubmissionSuccessfulSSTHE.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                LayoutMode: =LayoutMode.Auto
+                Width: |-
+                    =1 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, Parent.Width * 0.9,  
+                            ScreenSize.Medium, Parent.Width * 0.9,
+                            ScreenSize.Large, Parent.Width * 0.75,  
+                            Parent.Width * 0.6)
+                X: =Parent.Width/2 - Self.Width/2
+                Y: =cntrHeaderBarSSTHE.Y + cntrHeaderBarSSTHE.Height + Self.LayoutGap
+                ZIndex: =2
+
+                lblSubmissionSuccessfulSSTHE As label:
+                    AutoHeight: =true
+                    Size: |-
+                        =Average(12 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            12 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        )
+                    Text: |-
+                        =Switch(locClaimType,
+                            "TRAVEL",
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "tavel.claim.success.submitted.body").text,
+                            "HOSPITALITY",
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim.success.submitted.body").text
+                        )
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+            cntrHeaderBarSSTHE As groupContainer.manualLayoutContainer:
+                Height: =cntrShapesSSTHE.Height
+                Width: =cntrPageBodySSTHE.Width
+                X: =lblPageHeaderSSTHE.X
+                Y: =lblPageHeaderSSTHE.Y + lblPageHeaderSSTHE.Height
+                ZIndex: =3
+
+                cntrShapesSSTHE As groupContainer.verticalAutoLayoutContainer:
+                    Height: =shpRedLineSSTHE.Height + shpBackgroundAreaSSTHE.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    shpRedLineSSTHE As rectangle:
+                        Fill: =RGBA(175, 60, 67, 1)
+                        Height: =2
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    shpBackgroundAreaSSTHE As rectangle:
+                        Fill: =RGBA(240, 240, 240, 1)
+                        Height: =36
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                cntrActiveUserSSTHE As groupContainer.verticalAutoLayoutContainer:
+                    Height: =shpBackgroundAreaSSTHE.Height
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =Self.PaddingTop
+                    PaddingRight: |-
+                        =Average(15 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1),
+                                15 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1) 
+                        )
+                    PaddingTop: |-
+                        =Average(3 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1),
+                                3 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1) 
+                        )
+                    Width: =Parent.Width
+                    Y: =shpRedLineSSTHE.Height
+                    ZIndex: =2
+
+                    icoPersonSSTHE As icon.Person:
+                        FocusedBorderThickness: =0
+                        Height: |-
+                            =Average(22.4 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                22.4 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        HoverBorderColor: =Self.BorderColor
+                        HoverColor: =Self.Color
+                        Icon: =Icon.Person
+                        Width: =Self.Height
+                        ZIndex: =1
+
+                    lblActiveUserSSTHE As label:
+                        AutoHeight: =true
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =gblUser.FullName
+                        Width: =Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight
+                        ZIndex: =2
+
+            lblPageHeaderSSTHE As label:
+                AutoHeight: =true
+                FontWeight: =FontWeight.Semibold
+                Role: =TextRole.Heading1
+                Size: |-
+                    =Average(30.4 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        30.4 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "confirmation").text
+                Width: =cntrPageBodySSTHE.Width
+                X: =Parent.Width/2 - Self.Width/2
+                Y: |-
+                    =cmp_GCThemeMenuSSTHE.Y + cmp_GCThemeMenuSSTHE.MainMenuHeight + 
+                    Average(40 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        40 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                ZIndex: =4
+
+            cmp_GCThemeMenuSSTHE As cmp_GCThemeMenu:
+                ContentWidth: =cntrPageBodySSTHE.Width
+                Height: =cmp_GCThemeMenuSSTHE.ComponentHeight
+                MenuFontSize: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                MenuItems: |-
+                    =Table({
+                            Id:0,
+                            Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "home").text,
+                            Screen: 'Dashboard Screen'
+                        },
+                        {
+                            Id:1,
+                            Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "enter.a.claim").text,
+                            SubMenu: [
+                            {
+                                SubMenuId: 0,
+                                Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim").text,
+                                Screen: 'Enter Claim'
+                            },
+                            {
+                                SubMenuId: 1,
+                                Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim").text,
+                                Screen: 'Enter Claim'
+                            }
+                            ]
+                        }
+                    )
+                onSelectNavigationLink: |-
+                    =UpdateContext({locLoading: true});
+                    Set(gblClaimType, 
+                        Switch(cmp_GCThemeMenuSSTHE.SelectedMenuItem, 
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim").text,
+                            "TRAVEL",
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim").text,
+                            "HOSPITALITY"
+                        )
+                    )
+                Width: =Parent.Width
+                X: =cmp_GCThemeHeaderSSTHE.X
+                Y: =cmp_GCThemeHeaderSSTHE.Y + cmp_GCThemeHeaderSSTHE.Height
+                ZIndex: =5
+
+            cmp_GCThemeHeaderSSTHE As cmp_GCThemeHeader:
+                appName: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "app.name").text
+                AppNameFontSize: |-
+                    =Average(20 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        20 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                AppNameTextRole: ="text"
+                ContentWidth: =cntrPageBodySSTHE.Width
+                Height: =Self.ComponentHeight
+                LanguageLinkFontSize: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingSSTHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsSSTHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                languageLinkText: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "language.switch").text
+                onLanguageChange: =Set(varCurrentLanguage, Switch(varCurrentLanguage, "en", "fr", "en"));
+                Visible: =true
+                Width: =Parent.Width
+                ZIndex: =6
+
+    cmpSpinnerOpaqueSSTHE As cmp_SpinnerOpaque:
+        Height: =Parent.Height
+        Visible: =locInitLoad
+        Width: =Parent.Width
+        ZIndex: =4
+
+    grpScreenSizingSSTHE As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =4
+
+        cmpScreenFunctionsSSTHE As cmp_ScreenFunctions:
+            AppHeight: =App.Height
+            AppHeightBreakPoints: =AppHeightBreakpoints
+            Height: =1
+            Visible: =false
+            Width: =1
+
+        lblScreenWidthSizingSSTHE As label:
+            Height: =1
+            Size: =0
+            Text: =Parent.Size
+            Visible: =false
+            Width: =1
+            ZIndex: =2
+
+    cmpSpinnerClearSSTHE As cmp_SpinnerClear:
+        Height: =Parent.Height
+        Visible: =locLoading
+        Width: =Parent.Width
+        ZIndex: =5
+
+    tmrLoadingSSTHE As timer:
+        AutoPause: =false
+        AutoStart: =true
+        Duration: =1500
+        Height: =0
+        OnTimerEnd: |-
+            =UpdateContext({locInitLoad: false})
+        Repeat: =true
+        Size: =0
+        TabIndex: =-1
+        Text: =""
+        Visible: =false
+        Width: =0
+        ZIndex: =6
+

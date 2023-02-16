@@ -1,0 +1,713 @@
+cmp_DateInputAndCalendarPicker As CanvasComponent:
+    AppHeight: =768
+    AppWidth: |
+        =//19201000
+        1366
+    BorderColor: =RGBA(191, 191, 191, 1)
+    BorderSize: =1
+    CalendarVisible: =true
+    ComponentHeight: |-
+        =cntrDatePicker_DIACP.Height + shpBackground_DIACP.BorderThickness * 2 +
+        If(gblCalendarVisible,
+            17 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                ScreenSize.Small, 0.5,  
+                ScreenSize.Medium, 0.75,
+                ScreenSize.Large, 0.9,  
+                1) + btnClear.Height +
+            cntrDatePicker_DIACP.LayoutGap
+        )
+    ComponentWidth: |
+        =If(!IsBlank(gblCalendarVisible) && gblCalendarVisible,
+            Max(cntrDateInput_DIACP.Width, shpBackground_DIACP.Width + (shpBackground_DIACP.FocusedBorderThickness * 2)),
+            cntrDateInput_DIACP.Width
+        )
+    DefaultDate: =Blank()
+    DisabledColor: =RGBA(117, 117, 117, 1)
+    Fill: =RGBA(0, 0, 0, 0)
+    FirstDayInView: =DateAdd(cmp_DateInputAndCalendarPicker.FirstDayOfMonth,-(Weekday(cmp_DateInputAndCalendarPicker.FirstDayOfMonth,StartOfWeek.Sunday)-2+1),Days)
+    FirstDayOfMonth: =DateAdd(Today(),1-Day(Today()),Days)
+    FocusBorderSize: =1
+    FocusColor: =RGBA(196, 85, 255, 1)
+    FontSize: =12
+    FontSizing: |-
+        =Table({CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:33, Char:"!", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:32, Char:" ", Size:0.3475},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:34, Char:"""", Size:0.53461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:35, Char:"#", Size:0.86153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:36, Char:"$", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:37, Char:"%", Size:1.1},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:38, Char:"&", Size:0.97307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:39, Char:"'", Size:0.29615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:40, Char:"(", Size:0.39615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:41, Char:")", Size:0.39615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:42, Char:"*", Size:0.73846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:43, Char:"+", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:44, Char:",", Size:0.32692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:45, Char:"-", Size:0.43076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:46, Char:".", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:47, Char:"/", Size:0.49230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:48, Char:"0", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:49, Char:"1", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:50, Char:"2", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:51, Char:"3", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:52, Char:"4", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:53, Char:"5", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:54, Char:"6", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:55, Char:"7", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:56, Char:"8", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:57, Char:"9", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:58, Char:":", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:59, Char:";", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:60, Char:"<", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:61, Char:"=", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:62, Char:">", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:63, Char:"?", Size:0.57307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:64, Char:"@", Size:1.2},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:65, Char:"A", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:66, Char:"B", Size:0.86538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:67, Char:"C", Size:0.84230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:68, Char:"D", Size:0.97307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:69, Char:"E", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:70, Char:"F", Size:0.68461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:71, Char:"G", Size:0.97307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:72, Char:"H", Size:0.98461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:73, Char:"I", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:74, Char:"J", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:75, Char:"K", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:76, Char:"L", Size:0.69230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:77, Char:"M", Size:1.20384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:78, Char:"N", Size:1.00769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:79, Char:"O", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:80, Char:"P", Size:0.80384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:81, Char:"Q", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:82, Char:"R", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:83, Char:"S", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:84, Char:"T", Size:0.73846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:85, Char:"U", Size:0.97307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:86, Char:"V", Size:0.79615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:87, Char:"W", Size:1.23461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:88, Char:"X", Size:0.77307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:89, Char:"Y", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:90, Char:"Z", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:91, Char:"[", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:93, Char:"]", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:94, Char:"^", Size:0.72307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:95, Char:"_", Size:0.6},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:96, Char:"`", Size:0.77307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:97, Char:"a", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:98, Char:"b", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:99, Char:"c", Size:0.63461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:100, Char:"d", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:101, Char:"e", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:102, Char:"f", Size:0.45384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:103, Char:"g", Size:0.73076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:104, Char:"h", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:105, Char:"i", Size:0.33846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:106, Char:"j", Size:0.33846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:107, Char:"k", Size:0.7},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:108, Char:"l", Size:0.33846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:109, Char:"m", Size:1.24230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:110, Char:"n", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:111, Char:"o", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:112, Char:"p", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:113, Char:"q", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:114, Char:"r", Size:0.54615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:115, Char:"s", Size:0.63846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:116, Char:"t", Size:0.47307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:117, Char:"u", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:118, Char:"v", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:119, Char:"w", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:120, Char:"x", Size:0.7},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:121, Char:"y", Size:0.67307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:122, Char:"z", Size:0.62692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:123, Char:"{", Size:0.50769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:124, Char:"|", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:126, Char:"~", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:127, Char:"", Size:0.69230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:128, Char:"€", Size:0.78846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:129, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:130, Char:"‚", Size:0.32692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:131, Char:"ƒ", Size:0.77307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:132, Char:"„", Size:0.54230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:133, Char:"…", Size:1.04615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:134, Char:"†", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:135, Char:"‡", Size:0.68076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:136, Char:"ˆ", Size:0.79230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:137, Char:"‰", Size:1.60384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:138, Char:"Š", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:139, Char:"‹", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:140, Char:"Œ", Size:1.23076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:141, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:142, Char:"Ž", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:143, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:144, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:145, Char:"‘", Size:0.22692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:146, Char:"’", Size:0.22692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:147, Char:"“", Size:0.46923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:148, Char:"”", Size:0.46923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:149, Char:"•", Size:0.50384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:150, Char:"–", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:151, Char:"—", Size:1.33461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:152, Char:"˜", Size:0.79230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:153, Char:"™", Size:1.03461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:154, Char:"š", Size:0.63461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:155, Char:"›", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:156, Char:"œ", Size:1.25769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:157, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:158, Char:"ž", Size:0.62692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:159, Char:"Ÿ", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:160, Char:" ", Size:0.35},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:161, Char:"¡", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:162, Char:"¢", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:163, Char:"£", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:164, Char:"¤", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:165, Char:"¥", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:166, Char:"¦", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:167, Char:"§", Size:0.68846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:168, Char:"¨", Size:0.77307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:169, Char:"©", Size:1.11153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:170, Char:"ª", Size:0.47307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:171, Char:"«", Size:0.66538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:172, Char:"¬", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:174, Char:"®", Size:1.11153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:175, Char:"¯", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:176, Char:"°", Size:0.57307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:177, Char:"±", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:178, Char:"²", Size:0.46538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:179, Char:"³", Size:0.46538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:180, Char:"´", Size:0.77307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:181, Char:"µ", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:182, Char:"¶", Size:0.87307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:183, Char:"·", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:184, Char:"¸", Size:0.30384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:185, Char:"¹", Size:0.46538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:186, Char:"º", Size:0.5},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:187, Char:"»", Size:0.66538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:188, Char:"¼", Size:1.04230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:189, Char:"½", Size:1.04230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:190, Char:"¾", Size:1.04230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:191, Char:"¿", Size:0.57307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:192, Char:"À", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:193, Char:"Á", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:194, Char:"Â", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:195, Char:"Ã", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:196, Char:"Ä", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:197, Char:"Å", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:198, Char:"Æ", Size:1.16538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:199, Char:"Ç", Size:0.84230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:200, Char:"È", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:201, Char:"É", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:202, Char:"Ê", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:203, Char:"Ë", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:204, Char:"Ì", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:205, Char:"Í", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:206, Char:"Î", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:207, Char:"Ï", Size:0.37307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:208, Char:"Ð", Size:0.96538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:209, Char:"Ñ", Size:1.00769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:210, Char:"Ò", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:211, Char:"Ó", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:212, Char:"Ô", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:213, Char:"Õ", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:214, Char:"Ö", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:215, Char:"×", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:216, Char:"Ø", Size:1.03846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:217, Char:"Ù", Size:0.97307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:218, Char:"Ú", Size:0.97307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:219, Char:"Û", Size:0.97307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:220, Char:"Ü", Size:0.97307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:221, Char:"Ý", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:222, Char:"Þ", Size:0.81538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:223, Char:"ß", Size:0.83076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:224, Char:"à", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:225, Char:"á", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:226, Char:"â", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:227, Char:"ã", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:228, Char:"ä", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:229, Char:"å", Size:0.74230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:230, Char:"æ", Size:1.14615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:231, Char:"ç", Size:0.63461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:232, Char:"è", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:233, Char:"é", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:234, Char:"ê", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:235, Char:"ë", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:236, Char:"ì", Size:0.33846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:237, Char:"í", Size:0.33846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:238, Char:"î", Size:0.33846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:239, Char:"ï", Size:0.33846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:240, Char:"ð", Size:0.79615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:241, Char:"ñ", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:242, Char:"ò", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:243, Char:"ó", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:244, Char:"ô", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:245, Char:"õ", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:246, Char:"ö", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:247, Char:"÷", Size:0.76538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:248, Char:"ø", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:249, Char:"ù", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:250, Char:"ú", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:251, Char:"û", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:252, Char:"ü", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:253, Char:"ý", Size:0.67307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:254, Char:"þ", Size:0.81923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:33, Char:"!", Size:0.38461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:32, Char:" ", Size:0.3475},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:34, Char:"""", Size:0.63076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:35, Char:"#", Size:0.86153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:36, Char:"$", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:37, Char:"%", Size:1.20384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:38, Char:"&", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:39, Char:"'", Size:0.35769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:40, Char:"(", Size:0.45384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:41, Char:")", Size:0.45384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:42, Char:"*", Size:0.72692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:43, Char:"+", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:44, Char:",", Size:0.38846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:45, Char:"-", Size:0.43076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:46, Char:".", Size:0.38076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:47, Char:"/", Size:0.55384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:48, Char:"0", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:49, Char:"1", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:50, Char:"2", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:51, Char:"3", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:52, Char:"4", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:53, Char:"5", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:54, Char:"6", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:55, Char:"7", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:56, Char:"8", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:57, Char:"9", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:58, Char:":", Size:0.38076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:59, Char:";", Size:0.38846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:60, Char:"<", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:61, Char:"=", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:62, Char:">", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:63, Char:"?", Size:0.63846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:64, Char:"@", Size:1.19615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:65, Char:"A", Size:0.92307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:66, Char:"B", Size:0.89615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:67, Char:"C", Size:0.85},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:68, Char:"D", Size:0.98846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:69, Char:"E", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:70, Char:"F", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:71, Char:"G", Size:0.96538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:72, Char:"H", Size:1.02307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:73, Char:"I", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:74, Char:"J", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:75, Char:"K", Size:0.88846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:76, Char:"L", Size:0.75384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:77, Char:"M", Size:1.25769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:78, Char:"N", Size:1.08461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:79, Char:"O", Size:1.06153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:80, Char:"P", Size:0.83846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:81, Char:"Q", Size:1.06153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:82, Char:"R", Size:0.88076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:83, Char:"S", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:84, Char:"T", Size:0.77307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:85, Char:"U", Size:1.00769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:86, Char:"V", Size:0.86923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:87, Char:"W", Size:1.29230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:88, Char:"X", Size:0.89230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:89, Char:"Y", Size:0.83461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:90, Char:"Z", Size:0.77307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:91, Char:"[", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:93, Char:"]", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:94, Char:"^", Size:0.71153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:95, Char:"_", Size:0.55},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:96, Char:"`", Size:0.81153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:97, Char:"a", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:98, Char:"b", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:99, Char:"c", Size:0.68846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:100, Char:"d", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:101, Char:"e", Size:0.78846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:102, Char:"f", Size:0.51923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:103, Char:"g", Size:0.75384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:104, Char:"h", Size:0.87692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:105, Char:"i", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:106, Char:"j", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:107, Char:"k", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:108, Char:"l", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:109, Char:"m", Size:1.31153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:110, Char:"n", Size:0.87692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:111, Char:"o", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:112, Char:"p", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:113, Char:"q", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:114, Char:"r", Size:0.60769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:115, Char:"s", Size:0.66538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:116, Char:"t", Size:0.58076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:117, Char:"u", Size:0.87692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:118, Char:"v", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:119, Char:"w", Size:1.14230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:120, Char:"x", Size:0.77307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:121, Char:"y", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:122, Char:"z", Size:0.65384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:123, Char:"{", Size:0.52692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:124, Char:"|", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:126, Char:"~", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:127, Char:"", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:128, Char:"€", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:129, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:130, Char:"‚", Size:0.38846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:131, Char:"ƒ", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:132, Char:"„", Size:0.69230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:133, Char:"…", Size:1.14230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:134, Char:"†", Size:0.68846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:135, Char:"‡", Size:0.70384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:136, Char:"ˆ", Size:0.81153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:137, Char:"‰", Size:1.70769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:138, Char:"Š", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:139, Char:"‹", Size:0.49230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:140, Char:"Œ", Size:1.3},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:141, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:142, Char:"Ž", Size:0.76923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:143, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:144, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:145, Char:"‘", Size:0.29230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:146, Char:"’", Size:0.29230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:147, Char:"“", Size:0.59615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:148, Char:"”", Size:0.59615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:149, Char:"•", Size:0.50384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:150, Char:"–", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:151, Char:"—", Size:1.33461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:152, Char:"˜", Size:0.81153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:153, Char:"™", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:154, Char:"š", Size:0.66538462},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:155, Char:"›", Size:0.49230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:156, Char:"œ", Size:1.30384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:157, Char:"", Size:1},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:158, Char:"ž", Size:0.65384615},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:159, Char:"Ÿ", Size:0.83461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:160, Char:" ", Size:0.35},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:161, Char:"¡", Size:0.38461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:162, Char:"¢", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:163, Char:"£", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:164, Char:"¤", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:165, Char:"¥", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:166, Char:"¦", Size:0.73461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:167, Char:"§", Size:0.65},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:168, Char:"¨", Size:0.81153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:169, Char:"©", Size:1.11153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:170, Char:"ª", Size:0.51153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:171, Char:"«", Size:0.82307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:172, Char:"¬", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:174, Char:"®", Size:1.11153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:175, Char:"¯", Size:0.66923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:176, Char:"°", Size:0.57307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:177, Char:"±", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:178, Char:"²", Size:0.50769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:179, Char:"³", Size:0.50769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:180, Char:"´", Size:0.81153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:181, Char:"µ", Size:0.88076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:182, Char:"¶", Size:0.87307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:183, Char:"·", Size:0.38076923},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:184, Char:"¸", Size:0.27692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:185, Char:"¹", Size:0.50769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:186, Char:"º", Size:0.51923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:187, Char:"»", Size:0.82307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:188, Char:"¼", Size:1.17692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:189, Char:"½", Size:1.17692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:190, Char:"¾", Size:1.17692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:191, Char:"¿", Size:0.63846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:192, Char:"À", Size:0.92307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:193, Char:"Á", Size:0.92307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:194, Char:"Â", Size:0.92307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:195, Char:"Ã", Size:0.92307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:196, Char:"Ä", Size:0.91923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:197, Char:"Å", Size:0.92307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:198, Char:"Æ", Size:1.26923077},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:199, Char:"Ç", Size:0.85},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:200, Char:"È", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:201, Char:"É", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:202, Char:"Ê", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:203, Char:"Ë", Size:0.75},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:204, Char:"Ì", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:205, Char:"Í", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:206, Char:"Î", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:207, Char:"Ï", Size:0.44230769},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:208, Char:"Ð", Size:0.98846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:209, Char:"Ñ", Size:1.08461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:210, Char:"Ò", Size:1.06153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:211, Char:"Ó", Size:1.06153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:212, Char:"Ô", Size:1.06153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:213, Char:"Õ", Size:1.06153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:214, Char:"Ö", Size:1.06153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:215, Char:"×", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:216, Char:"Ø", Size:1.06153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:217, Char:"Ù", Size:1.00769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:218, Char:"Ú", Size:1.00769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:219, Char:"Û", Size:1.00769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:220, Char:"Ü", Size:1.00769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:221, Char:"Ý", Size:0.83461538},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:222, Char:"Þ", Size:0.83846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:223, Char:"ß", Size:0.95},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:224, Char:"à", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:225, Char:"á", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:226, Char:"â", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:227, Char:"ã", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:228, Char:"ä", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:229, Char:"å", Size:0.80769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:230, Char:"æ", Size:1.22307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:231, Char:"ç", Size:0.68846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:232, Char:"è", Size:0.78846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:233, Char:"é", Size:0.78846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:234, Char:"ê", Size:0.78846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:235, Char:"ë", Size:0.78846154},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:236, Char:"ì", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:237, Char:"í", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:238, Char:"î", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:239, Char:"ï", Size:0.40769231},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:240, Char:"ð", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:241, Char:"ñ", Size:0.87692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:242, Char:"ò", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:243, Char:"ó", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:244, Char:"ô", Size:0.82307692},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:245, Char:"õ", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:246, Char:"ö", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:247, Char:"÷", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:248, Char:"ø", Size:0.82692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:249, Char:"ù", Size:0.87692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:250, Char:"ú", Size:0.87692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:251, Char:"û", Size:0.87692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:252, Char:"ü", Size:0.87692308},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:253, Char:"ý", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:254, Char:"þ", Size:0.84615385},{CharFont:"'Open Sans', sans-serif", CharWeight:"bold", Code:255, Char:"ÿ", Size:0.76153846},{CharFont:"'Open Sans', sans-serif", CharWeight:"normal", Code:255, Char:"ÿ", Size:0.67307692})
+    FrenchDaysOfTheWeek: |
+        =["Di","Lu","Ma","Me","Je","Ve","Sa"]
+    Height: =800
+    HoverColor: =RGBA(205, 209, 244, 1)
+    Language: ="en"
+    LastDayOfMonth: =DateAdd(DateAdd(cmp_DateInputAndCalendarPicker.FirstDayOfMonth,1,Months),-1,Days)
+    MaxDate: =DateAdd(DateAdd(cmp_DateInputAndCalendarPicker.FirstDayOfMonth, -(Weekday(cmp_DateInputAndCalendarPicker.FirstDayOfMonth) - 2 + 1), Days), 40, Days)
+    MinDate: =DateAdd(cmp_DateInputAndCalendarPicker.FirstDayOfMonth, -(Weekday(cmp_DateInputAndCalendarPicker.FirstDayOfMonth) - 2 + 1), Days)
+    OnReset: =Set(gblDateSelected, Blank()); Set(gblCalendarVisible, false); Reset(txtDateInput_DIACP);
+    PrimaryColor: =RGBA(0, 0, 0, 1)
+    ScreenHeightBreakpoints: |-
+        ={Small: 0, Medium: 1000, Large: 2000}
+    ScreenWidthBreakpoints: |-
+        ={Small: 640, Medium: 900, Large: 1200}
+    SecondaryColor: =RGBA(0, 117, 255, 1)
+    SelectedDate: =If(IsBlank(gblDateSelected), Self.DefaultDate, gblDateSelected)
+    Width: =600
+    X: =0
+    Y: =0
+    ZIndex: =5
+
+    lblScreenWidthSizing_DIACP As label:
+        Height: =1
+        Size: =0
+        Text: |-
+            =If(
+                cmp_DateInputAndCalendarPicker.AppWidth > Parent.ScreenWidthBreakpoints.Large,
+                ScreenSize.ExtraLarge,
+                If(
+                    cmp_DateInputAndCalendarPicker.AppWidth > Parent.ScreenWidthBreakpoints.Medium && cmp_DateInputAndCalendarPicker.AppWidth <= Parent.ScreenWidthBreakpoints.Large,
+                    ScreenSize.Large,
+                    If(
+                        cmp_DateInputAndCalendarPicker.AppWidth > Parent.ScreenWidthBreakpoints.Small && cmp_DateInputAndCalendarPicker.AppWidth <= Parent.ScreenWidthBreakpoints.Medium,
+                        ScreenSize.Medium,
+                        If(
+                            cmp_DateInputAndCalendarPicker.AppWidth <= Parent.ScreenWidthBreakpoints.Small,
+                            ScreenSize.Small
+                        )
+                    )
+                )
+            )
+        Visible: =false
+        Width: =1
+        ZIndex: =1
+
+    sldrUpdateCalendarVisibility_DIACP As slider:
+        Default: =Len(txtDateInput_DIACP.Text)
+        DisplayMode: =DisplayMode.Disabled
+        HandleSize: =0
+        Height: =1
+        Max: =99999999
+        OnChange: |-
+            =//Hide the calendar if they start typing
+            Set(gblCalendarVisible, false)
+        RailThickness: =0
+        ShowValue: =false
+        TabIndex: =-1
+        Visible: =false
+        Width: =1
+        Y: =Parent.Height
+        ZIndex: =2
+
+    sldrUpdateDateSelected_DIACP As slider:
+        Default: |-
+            =If(IsMatch(txtDateInput_DIACP.Text, Digit & Digit & Digit & Digit & Hyphen & Digit & Digit & Hyphen & Digit & Digit),
+            	Substitute(txtDateInput_DIACP.Text, "-", ""),
+                Len(txtDateInput_DIACP.Text)
+            )
+        DisplayMode: =DisplayMode.Disabled
+        Height: =1
+        Max: =99999999
+        OnChange: |-
+            =If(!IsBlank(txtDateInput_DIACP.Text),
+                //Check the DatePicker for the correct format of YYYY-MM-DD
+                If(IsMatch(txtDateInput_DIACP.Text, Digit & Digit & Digit & Digit & Hyphen & Digit & Digit & Hyphen & Digit & Digit),
+                    //Check the selected month
+                    If(Value(Mid(txtDateInput_DIACP.Text, 6, 2)) <= 12 && Value(Mid(txtDateInput_DIACP.Text, 6, 2)) >= 1,
+                        //Check the selected day
+                        If(Value(Right(txtDateInput_DIACP.Text, 2)) <= 
+                           Day(DateAdd(DateAdd(DateAdd(Date(Value(Left(txtDateInput_DIACP.Text, 2)),
+                                Value(Mid(txtDateInput_DIACP.Text, 6, 2)), 
+                                Value(Right(txtDateInput_DIACP.Text, 2))), 
+                                1 - Day(Date(Value(Left(txtDateInput_DIACP.Text, 2)), 
+                                Value(Mid(txtDateInput_DIACP.Text, 6, 2)), 
+                                Value(Right(txtDateInput_DIACP.Text, 2)))), Days), 1, Months), -1, Days)
+                            ) 
+                           && Value(Right(txtDateInput_DIACP.Text, 2)) >= 1,
+                            
+                            //Update the date selected variable
+                            Set(gblDateSelected, txtDateInput_DIACP.Text);
+                            If(IsBlank(gblFirstDayOfMonth), 
+                                Set(gblFirstDayOfMonth, cmp_DateInputAndCalendarPicker.FirstDayOfMonth), 
+                                Set(gblFirstDayOfMonth, DateAdd(DateTimeValue(gblDateSelected), -Day(DateTimeValue(gblDateSelected)) + 1, Days))
+                            );
+                            If(IsBlank(gblFirstDayInView), 
+                                Set(gblFirstDayInView, cmp_DateInputAndCalendarPicker.FirstDayInView), 
+                                Set(gblFirstDayInView, DateAdd(gblFirstDayOfMonth, -(Weekday(gblFirstDayOfMonth, StartOfWeek.Sunday) - 2 + 1), Days))
+                            );
+                            If(IsBlank(gblLastDayOfMonth), 
+                                Set(gblLastDayOfMonth, cmp_DateInputAndCalendarPicker.LastDayOfMonth), 
+                                Set(gblLastDayOfMonth, DateAdd(DateAdd(gblFirstDayOfMonth, 1, Months), -1, Days))
+                            );
+                        )
+                    )
+                ),
+                Set(gblDateSelected, Blank())
+            )
+        RailThickness: =0
+        ShowValue: =false
+        TabIndex: =-1
+        Visible: =false
+        Width: =1
+        Y: =Parent.Height
+        ZIndex: =3
+
+    shpBackground_DIACP As rectangle:
+        BorderColor: =cmp_DateInputAndCalendarPicker.BorderColor
+        BorderThickness: =cmp_DateInputAndCalendarPicker.BorderSize
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: |-
+            =4.375 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 0.9,  
+                    1)
+        Height: |-
+            =cntrCalendarArea_DIACP.Height +
+            5 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 0.9,  
+                    1) +
+            btnClear.Height +
+            5 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 0.9,  
+                    1) 
+        Visible: =gblCalendarVisible
+        Width: |-
+            =Max(
+                250 * Switch(
+                    Value(lblScreenWidthSizing_DIACP.Text),
+                    ScreenSize.Small,
+                    0.5,
+                    ScreenSize.Medium,
+                    0.75,
+                    ScreenSize.Large,
+                    0.9,
+                    1.05
+                ) - Self.FocusedBorderThickness,
+                220
+            )
+        X: =txtDateInput_DIACP.X + Self.BorderThickness
+        Y: =cntrDateInput_DIACP.Height + cntrDatePicker_DIACP.LayoutGap
+        ZIndex: =4
+
+    btnToday As button:
+        BorderColor: =RGBA(0,0,0,0)
+        BorderThickness: =1
+        Color: =cmp_DateInputAndCalendarPicker.SecondaryColor
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =cmp_DateInputAndCalendarPicker.FocusColor
+        FocusedBorderThickness: =cmp_DateInputAndCalendarPicker.FocusBorderSize
+        FontWeight: =FontWeight.Normal
+        Height: =30
+        HoverBorderColor: =RGBA(0,0,0,1)
+        HoverColor: =Self.Color
+        HoverFill: =cmp_DateInputAndCalendarPicker.HoverColor
+        OnSelect: |-
+            =Set(gblDateSelected, Text(Today(), "yyyy-mm-dd"));
+            Set(gblCalendarVisible, false)
+        PressedBorderColor: =Self.HoverBorderColor
+        PressedColor: =Self.HoverColor
+        PressedFill: =Self.HoverFill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =btnClear.Size
+        Text: =Switch(cmp_DateInputAndCalendarPicker.Language, "fr", "aujourd'hui", "Today")
+        Visible: =gblCalendarVisible
+        Width: =Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(cmp_DateInputAndCalendarPicker.FontSizing, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + Self.BorderThickness
+        X: |-
+            =shpBackground_DIACP.X + shpBackground_DIACP.Width - Self.Width -
+            26.25 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 0.9,  
+                    1)
+        Y: =btnClear.Y
+        ZIndex: =5
+
+    btnClear As button:
+        BorderColor: =RGBA(0,0,0,0)
+        BorderThickness: =1
+        Color: =cmp_DateInputAndCalendarPicker.SecondaryColor
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =cmp_DateInputAndCalendarPicker.FocusColor
+        FocusedBorderThickness: =cmp_DateInputAndCalendarPicker.FocusBorderSize
+        FontWeight: =FontWeight.Normal
+        Height: =30
+        HoverBorderColor: =RGBA(0,0,0,1)
+        HoverColor: =Self.Color
+        HoverFill: =cmp_DateInputAndCalendarPicker.HoverColor
+        OnSelect: =Set(gblDateSelected, Blank())
+        PressedBorderColor: =Self.HoverBorderColor
+        PressedColor: =Self.HoverColor
+        PressedFill: =Self.HoverFill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: |-
+            =If(cmp_DateInputAndCalendarPicker.FontSize > 0,
+                cmp_DateInputAndCalendarPicker.FontSize,
+                12 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                    ScreenSize.Small, 0.4,  
+                    ScreenSize.Medium, 0.725,
+                    ScreenSize.Large, 0.9,  
+                    1)
+            )
+        Text: =Switch(cmp_DateInputAndCalendarPicker.Language, "fr", "effacer", "Clear")
+        Visible: =gblCalendarVisible
+        Width: =Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(cmp_DateInputAndCalendarPicker.FontSizing, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + Self.BorderThickness
+        X: |-
+            =shpBackground_DIACP.X + 
+            26.25 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 0.9,  
+                    1)
+        Y: =cntrDatePicker_DIACP.Height
+        ZIndex: =6
+
+    cntrDatePicker_DIACP As groupContainer.verticalAutoLayoutContainer:
+        Height: |-
+            =cntrDateInput_DIACP.Height + 
+            If(!IsBlank(gblCalendarVisible) && gblCalendarVisible, Self.LayoutGap + cntrMonthAndMonthSelector_DIACP.Height + cntrCalendar_DIACP.Height)
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: |-
+            =2 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                    ScreenSize.Small, 0.5,  
+                    ScreenSize.Medium, 0.75,
+                    ScreenSize.Large, 0.9,  
+                    1)
+        LayoutMode: =LayoutMode.Auto
+        Width: |-
+            =If(!IsBlank(gblCalendarVisible) && gblCalendarVisible,
+                Max(shpBackground_DIACP.Width, txtDateInput_DIACP.Width + (txtDateInput_DIACP.FocusedBorderThickness * 2)),
+                txtDateInput_DIACP.Width + (txtDateInput_DIACP.FocusedBorderThickness * 2)
+            )
+        ZIndex: =7
+
+        cntrDateAndDateImage_DIACP As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =cntrDateInput_DIACP.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =112
+            LayoutMinWidth: =0
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =1
+
+            cntrDateInput_DIACP As groupContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =txtDateInput_DIACP.Height + txtDateInput_DIACP.FocusedBorderThickness * 2
+                LayoutMinHeight: =112
+                LayoutMinWidth: =0
+                Width: =txtDateInput_DIACP.Width + (txtDateInput_DIACP.FocusedBorderThickness * 2) 
+                ZIndex: =1
+
+                txtDateInput_DIACP As text:
+                    AccessibleLabel: |-
+                        =Switch(cmp_DateInputAndCalendarPicker.Language, 
+                            "fr", 
+                            "Ouvrez le calendrier pour sélectionner une date ou entrez la date sous la forme : année 4 chiffres, trait d'union, mois 2 chiffres, trait d'union, jour 2 chiffres.", 
+                            "Open calendar to select a date or enter date as Year 4 digits, hyphen, Month 2 digits, hyphen, Day 2 digits or open calendar to select a date."
+                        )
+                    BorderColor: =cmp_DateInputAndCalendarPicker.BorderColor
+                    BorderThickness: =cmp_DateInputAndCalendarPicker.BorderSize
+                    Default: |-
+                        =Switch(cmp_DateInputAndCalendarPicker.Language, "fr", 
+                            If(!IsBlank(gblDateSelected),
+                                Text(DateValue(gblDateSelected), "[$-en-US]yyyy-mm-dd", "fr-FR"),
+                                Text(DateValue(cmp_DateInputAndCalendarPicker.DefaultDate), "[$-en-US]yyyy-mm-dd", "fr-FR")
+                            ), 
+                        
+                            If(!IsBlank(gblDateSelected),
+                                Text(DateValue(gblDateSelected), "[$-en-US]yyyy-mm-dd", "en-CA"),
+                                Text(DateValue(cmp_DateInputAndCalendarPicker.DefaultDate), "[$-en-US]yyyy-mm-dd", "en-CA")
+                            )
+                        )
+                    FocusedBorderColor: =cmp_DateInputAndCalendarPicker.FocusColor
+                    FocusedBorderThickness: =cmp_DateInputAndCalendarPicker.FocusBorderSize
+                    Height: |-
+                        =50 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1)
+                    HintText: |
+                        =If(Self.DisplayMode = DisplayMode.Edit, 
+                            Switch(cmp_DateInputAndCalendarPicker.Language, "fr", "AAAA-MM-JJ", "YYYY-MM-DD"), 
+                            ""
+                        )
+                    HoverBorderColor: =Self.BorderColor
+                    MaxLength: =10
+                    OnChange: =Set(gblCalendarVisible, false);
+                    PressedBorderColor: =Self.BorderColor
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: |-
+                        =If(cmp_DateInputAndCalendarPicker.FontSize > 0,
+                            cmp_DateInputAndCalendarPicker.FontSize,
+                            12 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                ScreenSize.Small, 0.4,  
+                                ScreenSize.Medium, 0.725,
+                                ScreenSize.Large, 0.9,  
+                                1)
+                        )
+                    Width: =cmp_DateInputAndCalendarPicker.Width - Self.BorderThickness*2
+                    X: =Self.FocusedBorderThickness
+                    Y: =Self.FocusedBorderThickness
+                    ZIndex: =1
+
+                imgCalendar_DIACP As image:
+                    AccessibleLabel: =Switch(cmp_DateInputAndCalendarPicker.Language, "fr", "Ouvrir le calendrier pour sélectionner une date", "Open calendar to select a date")
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =cmp_DateInputAndCalendarPicker.FocusColor
+                    FocusedBorderThickness: =txtDateInput_DIACP.FocusedBorderThickness
+                    Height: =txtDateInput_DIACP.Height - Self.FocusedBorderThickness
+                    Image: ='calendar-black'
+                    OnSelect: =Set(gblCalendarVisible, If(IsBlank(gblCalendarVisible), true, !gblCalendarVisible))
+                    PaddingBottom: =Self.PaddingTop
+                    PaddingLeft: =Self.PaddingTop
+                    PaddingRight: =Self.PaddingTop
+                    PaddingTop: |-
+                        =16 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                0.9)
+                    PressedBorderColor: =RGBA(0,0,0,0)
+                    TabIndex: =0
+                    Width: =Self.Height
+                    X: =txtDateInput_DIACP.X + txtDateInput_DIACP.Width - Self.Width
+                    Y: =txtDateInput_DIACP.Y  + (txtDateInput_DIACP.Height/2 - Self.Height/2)
+                    ZIndex: =2
+
+        cntrCalendarArea_DIACP As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            Height: |-
+                =cntrMonthAndMonthSelector_DIACP.Height +
+                cntrCalendar_DIACP.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+            LayoutMode: =LayoutMode.Auto
+            Visible: =gblCalendarVisible
+            Width: =Parent.Width
+            ZIndex: =4
+
+            cntrMonthAndMonthSelector_DIACP As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Max(lblCalendarMonthSelected_DIACP.Height, galNextPrevMonth_DIACP.Height) + Self.PaddingTop
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =112
+                LayoutMinWidth: =0
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: |-
+                    =5 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 0.9,  
+                            1)
+                Width: =shpBackground_DIACP.Width
+                X: =1.5
+                Y: =20
+                ZIndex: =1
+
+                lblCalendarMonthSelected_DIACP As label:
+                    Color: =cmp_DateInputAndCalendarPicker.PrimaryColor
+                    FontWeight: =FontWeight.Bold
+                    Height: =galNextPrevMonth_DIACP.Height
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    PaddingLeft: =0
+                    Size: |-
+                        =If(cmp_DateInputAndCalendarPicker.FontSize > 0,
+                            cmp_DateInputAndCalendarPicker.FontSize,
+                            12 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                ScreenSize.Small, 0.4,  
+                                ScreenSize.Medium, 0.725,
+                                ScreenSize.Large, 0.9,  
+                                1)
+                        )
+                    Text: |-
+                        =Proper(
+                            Switch(cmp_DateInputAndCalendarPicker.Language, "fr", 
+                                Text(If(IsBlank(gblFirstDayOfMonth), cmp_DateInputAndCalendarPicker.FirstDayOfMonth, gblFirstDayOfMonth),
+                                "[$-en-US] mmmm, yyyy",
+                                "fr-FR"),     
+                                Text(If(IsBlank(gblFirstDayOfMonth), cmp_DateInputAndCalendarPicker.FirstDayOfMonth, gblFirstDayOfMonth),
+                                "[$-en-US] mmmm, yyyy",
+                                "en-CA"
+                                ))
+                        )
+                    Width: =Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(cmp_DateInputAndCalendarPicker.FontSizing, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight
+                    Wrap: =false
+                    ZIndex: =1
+
+                "galNextPrevMonth_DIACP As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: |-
+                        =50 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1)
+                    Items: =[1, 2]
+                    LayoutMinHeight: =0
+                    LayoutMinWidth: =0
+                    TemplatePadding: =0
+                    TemplateSize: |-
+                        =40 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1)
+                    Width: =CountRows(Self.AllItems) * Self.TemplateWidth
+                    ZIndex: =4
+
+                    icoNextPrevMonth_DIACP As icon.ArrowUp:
+                        AccessibleLabel: |-
+                            =Switch(ThisItem.Value, 
+                                1, Switch(cmp_DateInputAndCalendarPicker.Language, "fr", "Voir le mois précédent", "View previous month"),
+                                2, Switch(cmp_DateInputAndCalendarPicker.Language, "fr", "Voir le mois suivant", "View next month")
+                            )
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderThickness: =1
+                        Color: =cmp_DateInputAndCalendarPicker.PrimaryColor
+                        FocusedBorderColor: =cmp_DateInputAndCalendarPicker.FocusColor
+                        FocusedBorderThickness: =cmp_DateInputAndCalendarPicker.FocusBorderSize
+                        Height: =Self.Width
+                        HoverBorderColor: =Self.Color
+                        HoverColor: =Self.Color
+                        HoverFill: =cmp_DateInputAndCalendarPicker.HoverColor
+                        Icon: =If(ThisItem.Value = 1, Icon.ArrowUp, Icon.ArrowDown)
+                        OnSelect: |-
+                            =Switch(ThisItem.Value, 
+                                1,
+                                // Changes month view to previous month
+                                If(IsBlank(gblFirstDayOfMonth), Set(gblFirstDayOfMonth, cmp_DateInputAndCalendarPicker.FirstDayOfMonth));
+                                If(IsBlank(gblFirstDayInView), Set(gblFirstDayInView, cmp_DateInputAndCalendarPicker.FirstDayInView));
+                                If(IsBlank(gblLastDayOfMonth), Set(gblFirstDayInView, cmp_DateInputAndCalendarPicker.LastDayOfMonth));
+                                Set(gblFirstDayOfMonth, DateAdd(gblFirstDayOfMonth, -1, Months));
+                                Set(gblFirstDayInView, DateAdd(gblFirstDayOfMonth, -(Weekday(gblFirstDayOfMonth) - 2 + 1), Days));           
+                                Set(gblLastDayOfMonth, DateAdd(DateAdd(gblFirstDayOfMonth, 1, Months), -1, Days)),
+                                
+                                2,
+                                // Changes month view to next month
+                                If(IsBlank(gblFirstDayOfMonth), Set(gblFirstDayOfMonth, cmp_DateInputAndCalendarPicker.FirstDayOfMonth));
+                                If(IsBlank(gblFirstDayInView), Set(gblFirstDayInView, cmp_DateInputAndCalendarPicker.FirstDayInView));
+                                If(IsBlank(gblLastDayOfMonth), Set(gblFirstDayInView, cmp_DateInputAndCalendarPicker.LastDayOfMonth));
+                                Set(gblFirstDayOfMonth, DateAdd(gblFirstDayOfMonth, 1, Months));
+                                Set(gblFirstDayInView, DateAdd(gblFirstDayOfMonth, -(Weekday(gblFirstDayOfMonth) - 2 + 1), Days));
+                                Set(gblLastDayOfMonth, DateAdd(DateAdd(gblFirstDayOfMonth, 1, Months), -1, Days))
+                            )
+                        PaddingBottom: =Self.PaddingTop
+                        PaddingLeft: =Self.PaddingTop
+                        PaddingRight: =Self.PaddingTop
+                        PaddingTop: |-
+                            =16 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                    ScreenSize.Small, 0.4,  
+                                    ScreenSize.Medium, 0.5,
+                                    ScreenSize.Large, 0.6,  
+                                    0.5)
+                        TabIndex: =0
+                        Visible: =gblCalendarVisible
+                        Width: =Parent.TemplateWidth - Self.FocusedBorderThickness * 2
+                        X: =Parent.TemplateWidth/2 - Self.Width/2
+                        Y: =Parent.TemplateHeight/2 - Self.Height/2
+                        ZIndex: =4
+
+            cntrCalendar_DIACP As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(255, 0, 0, 1)
+                FillPortions: =0
+                Height: =galWeekday_DIACP.Height + galMonthDay_DIACP.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =112
+                LayoutMinWidth: =0
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =2
+
+                cntrWeekAndDay_DIACP As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =galWeekday_DIACP.Height + galMonthDay_DIACP.Height
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =0
+                    Width: =Max(galWeekday_DIACP.Width, galMonthDay_DIACP.Width)
+                    ZIndex: =3
+
+                    galMonthDay_DIACP As gallery.MonthDayGallery:
+                        Height: |-
+                            =If(
+                                DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView), 35, Days) > 
+                                If(IsBlank(gblLastDayOfMonth), cmp_DateInputAndCalendarPicker.LastDayOfMonth, gblLastDayOfMonth), 5 * Self.TemplateHeight, 6 * Self.TemplateHeight
+                            )
+                        ItemAccessibleLabel: |-
+                            =Switch(cmp_DateInputAndCalendarPicker.Language, "fr", 
+                                Text(DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView),ThisItem.Value,Days),
+                                "[$-en-US]dddd d, mmmm, yyyy",
+                                "fr-FR"),     
+                                
+                                Text(DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView),ThisItem.Value,Days),
+                                "[$-en-US]dddd, mmmm d, yyyy",
+                                "en-CA"
+                                ))
+                        Items: |-
+                            =If(
+                                DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView), 35, Days) > 
+                                If(IsBlank(gblLastDayOfMonth), cmp_DateInputAndCalendarPicker.LastDayOfMonth, gblLastDayOfMonth),
+                                
+                                    [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19, 20,21,22,23,24,25,26,27,28,29,30,31,32,33,34],
+                                    [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19, 20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]
+                            )
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: |-
+                            =50 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 0.9,  
+                                    1)
+                        Width: =shpBackground_DIACP.Width
+                        WrapCount: =7
+                        X: =shpBackground_DIACP.X
+                        Y: =galWeekday_DIACP.Height
+                        ZIndex: =1
+
+                        shpSelectedDay_DIACP As rectangle:
+                            BorderColor: =cmp_DateInputAndCalendarPicker.PrimaryColor
+                            BorderThickness: |
+                                =cmp_DateInputAndCalendarPicker.BorderSize
+                            Fill: =cmp_DateInputAndCalendarPicker.SecondaryColor
+                            FocusedBorderColor: =RGBA(0,0,0,0)
+                            FocusedBorderThickness: =0
+                            Height: =galMonthDay_DIACP.TemplateHeight - Max(Self.FocusedBorderThickness * 2, Self.BorderThickness * 2)
+                            OnSelect: =Select(Parent)
+                            Visible: |-
+                                =DateAdd(
+                                    If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView), ThisItem.Value) = 
+                                    DateValue(If(IsBlank(gblDateSelected), cmp_DateInputAndCalendarPicker.SelectedDate, gblDateSelected)
+                                ) 
+                                && btnDay_DIACP.Visible
+                            Width: =galMonthDay_DIACP.TemplateWidth - Max(Self.FocusedBorderThickness * 2, Self.BorderThickness * 2)
+                            X: =Parent.TemplateWidth/2 - Self.Width/2
+                            Y: =Parent.TemplateHeight/2 - Self.Height/2
+                            ZIndex: =2
+
+                        cntrDaySelect_DIACP As groupContainer.horizontalAutoLayoutContainer:
+                            Height: =Parent.TemplateHeight
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.TemplateWidth
+                            ZIndex: =4
+
+                            btnDay_DIACP As button:
+                                AutoDisableOnSelect: =false
+                                BorderColor: =cmp_DateInputAndCalendarPicker.PrimaryColor
+                                BorderThickness: |-
+                                    =If(DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView), ThisItem.Value) = Today(),
+                                        cmp_DateInputAndCalendarPicker.BorderSize
+                                    )
+                                Color: |-
+                                    =If(
+                                        DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView), ThisItem.Value) = 
+                                        DateValue(If(IsBlank(gblDateSelected), cmp_DateInputAndCalendarPicker.SelectedDate, gblDateSelected)), 
+                                            
+                                        Color.White, 
+                                        
+                                        //The day is outside the range of the currently selected month
+                                        If(Abs(Self.Text - ThisItem.Value) > 10,
+                                                
+                                            cmp_DateInputAndCalendarPicker.DisabledColor,
+                                            // Otherwise it's black
+                                            RGBA(0,0,0,1)
+                                        )
+                                    )
+                                Fill: =RGBA(0, 0, 0, 0)
+                                FocusedBorderColor: =cmp_DateInputAndCalendarPicker.FocusColor
+                                FocusedBorderThickness: =cmp_DateInputAndCalendarPicker.FocusBorderSize
+                                FontWeight: =FontWeight.Normal
+                                Height: =galMonthDay_DIACP.TemplateHeight - Max(Self.FocusedBorderThickness * 2, Self.BorderThickness * 2)
+                                HoverBorderColor: =Self.BorderColor
+                                HoverColor: =Self.Color
+                                HoverFill: |
+                                    =If(
+                                        DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView), ThisItem.Value) = 
+                                        DateValue(If(IsBlank(gblDateSelected), cmp_DateInputAndCalendarPicker.SelectedDate, gblDateSelected)),
+                                            
+                                            RGBA(0,0,0,0),
+                                            cmp_DateInputAndCalendarPicker.HoverColor
+                                    )
+                                LayoutMinHeight: =70
+                                LayoutMinWidth: =280
+                                OnSelect: =Set(gblDateSelected, Text(DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView), ThisItem.Value, Days), "yyyy-mm-dd")); Set(gblCalendarVisible, false)
+                                PaddingLeft: =2
+                                PaddingRight: =2
+                                PressedColor: =Self.Color
+                                PressedFill: =RGBA(0,0,0,0.15)
+                                RadiusBottomLeft: =Self.RadiusTopLeft
+                                RadiusBottomRight: =Self.RadiusTopLeft
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =Self.RadiusTopLeft
+                                Size: |-
+                                    =If(cmp_DateInputAndCalendarPicker.FontSize > 0,
+                                        cmp_DateInputAndCalendarPicker.FontSize,
+                                        12 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                            ScreenSize.Small, 0.4,  
+                                            ScreenSize.Medium, 0.725,
+                                            ScreenSize.Large, 0.9,  
+                                            1)
+                                    )
+                                Text: =Day(DateAdd(If(IsBlank(gblFirstDayInView), cmp_DateInputAndCalendarPicker.FirstDayInView, gblFirstDayInView),ThisItem.Value,Days))
+                                Width: =galMonthDay_DIACP.TemplateWidth - Max(Self.FocusedBorderThickness * 2, Self.BorderThickness * 2)
+                                ZIndex: =1
+
+                    galWeekday_DIACP As gallery.WeekdayGallery:
+                        Height: |-
+                            =50 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 0.9,  
+                                    1)
+                        Items: |-
+                            =Switch(cmp_DateInputAndCalendarPicker.Language, "fr",
+                            cmp_DateInputAndCalendarPicker.FrenchDaysOfTheWeek,
+                            ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+                            )
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =IfError(Self.Width/CountRows(Self.AllItems), 0)
+                        Width: =galMonthDay_DIACP.Width
+                        X: =shpBackground_DIACP.X
+                        ZIndex: =2
+
+                        lblShortWeekday_DIACP As label:
+                            Align: =Align.Center
+                            Height: =Parent.TemplateHeight
+                            OnSelect: =Select(Parent)
+                            PaddingLeft: =2
+                            PaddingRight: =2
+                            Size: |-
+                                =If(cmp_DateInputAndCalendarPicker.FontSize > 0,
+                                    cmp_DateInputAndCalendarPicker.FontSize,
+                                    12 * Switch(Value(lblScreenWidthSizing_DIACP.Text),  
+                                        ScreenSize.Small, 0.4,  
+                                        ScreenSize.Medium, 0.725,
+                                        ScreenSize.Large, 0.9,  
+                                        1)
+                                )
+                            Text: =Trim(ThisItem.Value)
+                            Width: =Parent.TemplateWidth
+                            ZIndex: =2
+

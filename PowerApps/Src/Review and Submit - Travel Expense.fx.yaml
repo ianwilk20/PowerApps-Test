@@ -1,0 +1,1286 @@
+"'Review and Submit - Travel Expense' As screen":
+    OnHidden: |-
+        =UpdateContext({locResetScrollPosition: false, selectedClaimID: Blank()});
+        Clear(colFormErrors);
+    OnVisible: |-
+        =UpdateContext({locInitLoad:true, locLoading:false, locResetScrollPosition: true});
+        
+        //Could be made more efficient - Ian
+        ClearCollect(col_MyTravelClaims,
+            Filter('Draft travel expenses / Frais de voyage soumis', 'Created By'.Email = User().Email)
+        );
+
+    canScrollableAreaRSTE As fluidGrid.fluidGridWithBlankCard:
+        AcceptsFocus: =true
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width
+        X: =0.00
+        ZIndex: =3
+
+        canCanvasCardRSTE As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =100
+            Visible: =locResetScrollPosition
+            Width: =Parent.Width
+            X: =0.00
+            Y: =2
+            ZIndex: =3
+
+            locLongestFieldNameSection1_RSTE As label:
+                Text: |-
+                    =LookUp(colTranslations, language.Value = varCurrentLanguage && ID =
+                        First(
+                            Sort(
+                                ForAll(
+                                    [LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.status"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.government.official"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.purpose.english"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.purpose.french"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.start.date"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.end.date"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.destination.english"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.destination.french"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.hospitality.expenses")] As Result,
+                                    {
+                                        ID: Result.Value.ID,
+                                        Len: Len(Result.Value.text)
+                                    }
+                                ),
+                            Len,
+                            Descending
+                            )
+                        ).ID,
+                        text)
+                Visible: =false
+                Y: =-Self.Height
+                ZIndex: =1
+
+            locLongestFieldNameSection2_RSTE As label:
+                Text: |-
+                    =LookUp(colTranslations, language.Value = varCurrentLanguage && ID =
+                        First(
+                            Sort(
+                                ForAll(
+                                    [LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.additional.comments.english"),
+                                     LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.additional.comments.french")] As Result,
+                                    {
+                                        ID: Result.Value.ID,
+                                        Len: Len(Result.Value.text)
+                                    }
+                                ),
+                            Len,
+                            Descending
+                            )
+                        ).ID,
+                        text)
+                Visible: =false
+                Y: =-Self.Height
+                ZIndex: =2
+
+            cmp_GCThemeFooterRSTE As cmp_GCThemeFooter:
+                contactLinkEN: |-
+                    ="mailto:" & gblFinanceEmail
+                contactLinkFR: |-
+                    ="mailto:" & gblFinanceEmail
+                ContentWidth: =cntrPageBodyRSTE.Width
+                Height: |-
+                    =Average(85.77 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        85.77 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Language: =varCurrentLanguage
+                LinkFontSize: |-
+                    =Average(11.2 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        11.2 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Width: =Parent.Width
+                Y: |-
+                    =cntrPageBodyRSTE.Y + cntrPageBodyRSTE.Height + 
+                    Average(40 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        40 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                ZIndex: =3
+
+            cntrPageBodyRSTE As groupContainer.verticalAutoLayoutContainer:
+                BorderColor: =RGBA(39, 113, 194, 1)
+                Height: |-
+                    =cmpReviewInfoRSTE.Height + Self.LayoutGap +
+                    cntrStatusRSTE.Height + Self.LayoutGap +
+                    cntrGovOfficialRSTE.Height + Self.LayoutGap +
+                    cntrPurposeEnRSTE.Height + Self.LayoutGap +
+                    cntrPurposeFrRSTE.Height + Self.LayoutGap +
+                    cntrStartDateRSTE.Height + Self.LayoutGap +
+                    cntrEndDateRSTE.Height + Self.LayoutGap +
+                    cntrDestinationEnRSTE.Height + Self.LayoutGap +
+                    cntrDestinationFrRSTE.Height + Self.LayoutGap +
+                    cntrHospExpenseRSTE.Height + Self.LayoutGap +
+                    cntrTableRSTE.Height + Self.LayoutGap +
+                    cntrAdditionalCommentsEnRSTE.Height + Self.LayoutGap +
+                    cntrAdditionalCommentsFrRSTE.Height + Self.LayoutGap +
+                    cntrActionButtonsRSTE.Height + Self.LayoutGap
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: |-
+                    =Average(6 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        6 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                LayoutMode: =LayoutMode.Auto
+                Width: |-
+                    =1 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, Parent.Width * 0.9,  
+                            ScreenSize.Medium, Parent.Width * 0.9,
+                            ScreenSize.Large, Parent.Width * 0.75,  
+                            Parent.Width * 0.6)
+                X: =Parent.Width/2 - Self.Width/2
+                Y: |-
+                    =cntrHeaderBarRSTE.Y + cntrHeaderBarRSTE.Height +
+                    Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                ZIndex: =4
+
+                cmpReviewInfoRSTE As cmp_GCThemeAlert:
+                    AlertContent: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.submit.claim.info").text
+                    AlertTitle: =""
+                    AlertType: ="INFO"
+                    ContentFontSize: |-
+                        =Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        )
+                    ContentWidth: =Parent.Width
+                    Height: =Self.ComponentHeight
+                    LayoutMinHeight: =640
+                    LayoutMinWidth: =640
+                    TitleFontSize: =0
+                    Width: =Parent.Width
+
+                cntrStatusRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblStatusRSTE.Height, lblStatusValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =4
+
+                    lblStatusRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.status").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblStatusValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =If(LookUp(col_MyTravelClaims, ID = selectedClaimID).Status.Value = "IN PROGRESS", LookUp(colTranslations, language.Value = varCurrentLanguage && key = "in.progress").text, LookUp(colTranslations, language.Value = varCurrentLanguage && key = "submitted").text)
+                        Width: =200
+                        ZIndex: =2
+
+                cntrGovOfficialRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblGovOfficialRSTE.Height, lblGovOfficialValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =5
+
+                    lblGovOfficialRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =lblStatusRSTE.PaddingRight
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.government.official").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblGovOfficialValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(col_MyTravelClaims, ID = selectedClaimID).'Name / Nom'
+                        Width: =200
+                        ZIndex: =2
+
+                cntrPurposeEnRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblPurposeEnRSTE.Height, lblPurposeEnValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =6
+
+                    lblPurposeEnRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =lblStatusRSTE.PaddingRight
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.purpose.english").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblPurposeEnValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: =lblStatusRSTE.Size
+                        Text: =PlainText(LookUp(col_MyTravelClaims, ID = selectedClaimID).'Purpose / But (EN)')
+                        Width: =200
+                        ZIndex: =4
+
+                cntrPurposeFrRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblPurposeFrRSTE.Height, lblPurposeValueFrRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =7
+
+                    lblPurposeFrRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =lblStatusRSTE.PaddingRight
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.purpose.french").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblPurposeValueFrRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: =lblStatusRSTE.Size
+                        Text: =PlainText(LookUp(col_MyTravelClaims, ID = selectedClaimID).'Purpose / But (FR)')
+                        Width: =200
+                        ZIndex: =4
+
+                cntrStartDateRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblStartDateRSTE.Height, lblStartDateValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =8
+
+                    lblStartDateRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =lblStatusRSTE.PaddingRight
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.start.date").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblStartDateValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(col_MyTravelClaims, ID = selectedClaimID).'Start Date / Date de début '
+                        Width: =200
+                        ZIndex: =2
+
+                cntrEndDateRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblEndDateRSTE.Height, lblEndDateValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =9
+
+                    lblEndDateRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =lblStatusRSTE.PaddingRight
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.end.date").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblEndDateValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(col_MyTravelClaims, ID = selectedClaimID).'End Date / Date de fin '
+                        Width: =200
+                        ZIndex: =2
+
+                cntrDestinationEnRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblDestinationEnRSTE.Height, lblDestinationEnValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =10
+
+                    lblDestinationEnRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =lblStatusRSTE.PaddingRight
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.destination.english").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblDestinationEnValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(col_MyTravelClaims, ID = selectedClaimID).'DEST (EN)'
+                        Width: =200
+                        ZIndex: =2
+
+                cntrDestinationFrRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblDestinationFrRSTE.Height, lblDestinationFrValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =11
+
+                    lblDestinationFrRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =lblStatusRSTE.PaddingRight
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.destination.french").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblDestinationFrValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(col_MyTravelClaims, ID = selectedClaimID).'DEST (FR)'
+                        Width: =200
+                        ZIndex: =2
+
+                cntrHospExpenseRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblHospExpenseRSTE.Height, lblHospExpenseValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =12
+
+                    lblHospExpenseRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        PaddingRight: =lblStatusRSTE.PaddingRight
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.hospitality.expenses").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection1_RSTE, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        Wrap: =false
+                        ZIndex: =1
+
+                    lblHospExpenseValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = Lower(LookUp(col_MyTravelClaims, ID = selectedClaimID).'HOSP EXP / Frais d''accueil'.Value)).text
+                        Width: =200
+                        ZIndex: =2
+
+                cntrTableRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =0
+                    Height: |-
+                        =shpSeparatorTableTopRSTE.Height + Self.LayoutGap +
+                        cntrTanRSTE.Height + Self.LayoutGap +
+                        cntrExpensesRSTE.Height + Self.LayoutGap +
+                        shpSeparatorHeaderTableRSTE.Height + Self.LayoutGap +
+                        shpSeparatorTableEndRSTE.Height + Self.LayoutGap
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =13
+
+                    shpSeparatorTableTopRSTE As rectangle:
+                        Fill: =RGBA(0, 0, 0, 1)
+                        Height: =3
+                        Width: =Parent.Width
+                        Y: =
+                        ZIndex: =1
+
+                    cntrTanRSTE As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: =RGBA(217, 217, 217, 1)
+                        FillPortions: =0
+                        Height: =lblTanRSTE.Height
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                        lblTanRSTE As htmlViewer:
+                            AlignInContainer: =AlignInContainer.Center
+                            AutoHeight: =true
+                            HtmlText: |-
+                                =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim.review.financial.information").text & " " &
+                                LookUp(
+                                    col_MyTravelClaims,
+                                    ID = selectedClaimID
+                                ).'TAN / NAV'
+                            Size: =lblStatusRSTE.Size
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                    shpSeparatorHeaderTableRSTE As rectangle:
+                        Fill: =RGBA(0, 0, 0, 1)
+                        Height: =3
+                        Width: =Parent.Width
+                        Y: =
+                        ZIndex: =3
+
+                    cntrExpensesRSTE As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: |-
+                            =cntrAirfareRSTE.Height + Self.LayoutGap +
+                            cntrOtherTransportRSTE.Height + Self.LayoutGap +
+                            cntrAccommodationRSTE.Height + Self.LayoutGap +
+                            cntrMealsRSTE.Height + Self.LayoutGap +
+                            cntrOtherExpensesRSTE.Height + Self.LayoutGap +
+                            cntrTotalRSTE.Height + Self.LayoutGap
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =4
+
+                        cntrAirfareRSTE As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =Max(lblAirfareRSTE.Height, lblAirfareValueRSTE.Height)
+                            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                            lblAirfareRSTE As label:
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "airfare").text
+                                Width: |-
+                                    =Average(9 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25),
+                                        9 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25) 
+                                    ) * Len(Self.Text)
+                                ZIndex: =1
+
+                            lblAirfareValueRSTE As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: |-
+                                    =With(LookUp(col_MyTravelClaims, ID = selectedClaimID) As rec,
+                                        "$" & If(Value(rec.'Airfare / Frais d''avion') > 0, Text(rec.'Airfare / Frais d''avion', "0.00"), "0.00")
+                                    )
+                                Width: =200
+                                ZIndex: =2
+
+                        cntrOtherTransportRSTE As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =Max(lblOtherTransportRSTE.Height, lblOtherTransportValueRSTE.Height)
+                            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            ZIndex: =2
+
+                            lblOtherTransportRSTE As label:
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "other.transportation").text
+                                Width: |-
+                                    =Average(9 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25),
+                                        9 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25) 
+                                    ) * Len(Self.Text)
+                                ZIndex: =1
+
+                            lblOtherTransportValueRSTE As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: |-
+                                    =With(LookUp(col_MyTravelClaims, ID = selectedClaimID) As rec,
+                                        "$" & If(Value(rec.'Other Transp. / Autres frais de transp.') > 0, Text(rec.'Other Transp. / Autres frais de transp.', "0.00"), "0.00")
+                                    )
+                                Width: =200
+                                ZIndex: =2
+
+                        cntrAccommodationRSTE As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =Max(lblAccommodationRSTE.Height, lblAccommodationValueRSTE.Height)
+                            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            ZIndex: =3
+
+                            lblAccommodationRSTE As label:
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "accommodation").text
+                                Width: |-
+                                    =Average(9 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25),
+                                        9 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25) 
+                                    ) * Len(Self.Text)
+                                ZIndex: =1
+
+                            lblAccommodationValueRSTE As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: |-
+                                    =With(LookUp(col_MyTravelClaims, ID = selectedClaimID) As rec,
+                                        "$" & If(Value(rec.'Accommod. / Hébergement') > 0, Text(rec.'Accommod. / Hébergement', "0.00"), "0.00")
+                                    )
+                                Width: =200
+                                ZIndex: =2
+
+                        cntrMealsRSTE As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =Max(lblMealsRSTE.Height, lblMealsValueRSTE.Height)
+                            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            ZIndex: =4
+
+                            lblMealsRSTE As label:
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "meals.and.incidentals").text
+                                Width: |-
+                                    =Average(9 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25),
+                                        9 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25) 
+                                    ) * Len(Self.Text)
+                                ZIndex: =1
+
+                            lblMealsValueRSTE As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: |-
+                                    =With(LookUp(col_MyTravelClaims, ID = selectedClaimID) As rec,
+                                        "$" & If(Value(rec.'Meals & Incidentals / Frais de repas et frais accessoires') > 0, Text(rec.'Meals & Incidentals / Frais de repas et frais accessoires', "0.00"), "0.00")
+                                    )
+                                Width: =200
+                                ZIndex: =2
+
+                        cntrOtherExpensesRSTE As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =Max(lblOtherExpensesRSTE.Height, lblOtherExpensesValueRSTE.Height)
+                            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            ZIndex: =5
+
+                            lblOtherExpensesRSTE As label:
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "other.expenses").text
+                                Width: |-
+                                    =Average(9 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25),
+                                        9 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25) 
+                                    ) * Len(Self.Text)
+                                ZIndex: =1
+
+                            lblOtherExpensesValueRSTE As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: |-
+                                    =With(LookUp(col_MyTravelClaims, ID = selectedClaimID) As rec,
+                                        "$" & If(Value(rec.'Other Exp. / Autres dép.') > 0, Text(rec.'Other Exp. / Autres dép.', "0.00"), "0.00")
+                                    )
+                                Width: =200
+                                ZIndex: =2
+
+                        shpSeparatorTotalRSTE As rectangle:
+                            Fill: =RGBA(0, 0, 0, 1)
+                            Height: =1
+                            Width: =Parent.Width
+                            Y: =
+                            ZIndex: =6
+
+                        cntrTotalRSTE As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =Max(lblTotalRSTE.Height, lblTotalValueRSTE.Height)
+                            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            ZIndex: =7
+
+                            lblTotalRSTE As label:
+                                AutoHeight: =true
+                                FillPortions: =1
+                                FontWeight: =FontWeight.Semibold
+                                Size: =lblStatusRSTE.Size
+                                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "total").text
+                                Width: |-
+                                    =Average(9 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25),
+                                        9 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25) 
+                                    ) * Len(Self.Text)
+                                ZIndex: =1
+
+                            lblTotalValueRSTE As label:
+                                Align: =Align.Right
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Size: =lblStatusRSTE.Size
+                                Text: |-
+                                    =With(LookUp(col_MyTravelClaims, ID = selectedClaimID) As rec,
+                                        "$" & If(Value(rec.Total) > 0, Text(Value(rec.Total), "0.00"), "0.00")
+                                    )
+                                Width: =200
+                                ZIndex: =2
+
+                    shpSeparatorTableEndRSTE As rectangle:
+                        Fill: =RGBA(0, 0, 0, 1)
+                        Height: =2
+                        Width: =Parent.Width
+                        Y: =
+                        ZIndex: =6
+
+                cntrAdditionalCommentsEnRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblAdditionalCommentsEnRSTE.Height, lblAdditionalCommentsEnValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =14
+
+                    lblAdditionalCommentsEnRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.additional.comments.english").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection2_RSTE.Text, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblAdditionalCommentsEnValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =PlainText(LookUp(col_MyTravelClaims, ID = selectedClaimID).'Desc. - Other / Desc. - Autres (EN)')
+                        Width: =200
+                        ZIndex: =2
+
+                cntrAdditionalCommentsFrRSTE As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(lblAdditionalCommentsFrRSTE.Height, lblAdditionalCommentsFrValueRSTE.Height)
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =15
+
+                    lblAdditionalCommentsFrRSTE As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.additional.comments.french").text
+                        Width: |
+                            =Sum(AddColumns(Split(locLongestFieldNameSection2_RSTE.Text, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight + 10
+                        ZIndex: =1
+
+                    lblAdditionalCommentsFrValueRSTE As label:
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =PlainText(LookUp(col_MyTravelClaims, ID = selectedClaimID).'Desc. - Other / Desc. - Autres (FR)')
+                        Width: =200
+                        ZIndex: =2
+
+                cntrActionButtonsRSTE As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(btnPreviousRSTE.Height, btnContinueRSTE.Height + btnContinueRSTE.FocusedBorderThickness * 2) + Self.PaddingTop
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =btnPreviousRSTE.BorderThickness
+                    PaddingTop: |-
+                        =Average(6 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            6 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        ) * 2
+                    Width: =Parent.Width
+                    ZIndex: =16
+
+                    btnPreviousRSTE As button:
+                        Color: =RGBA(39, 67, 125, 1)
+                        Fill: =LookUp(Colors, Color = "Secondary", RGB)
+                        FocusedBorderColor: =LookUp(Colors, Color = "Focus Primary", RGB)
+                        FocusedBorderThickness: |-
+                            =Average(2.5 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                2.5 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        FontWeight: =FontWeight.Bold
+                        HoverBorderColor: =LookUp(Colors, Color = "Muted Primary", RGB)
+                        HoverFill: =RGBA(28, 87, 138, 1)
+                        OnSelect: |-
+                            =UpdateContext({locLoading: true});
+                            If(
+                                !IsBlank(selectedClaimID),
+                                Navigate(
+                                    'Enter Claim',
+                                    ScreenTransition.Fade,
+                                    {selectedClaimID: Value(selectedClaimID)}
+                                )
+                            )
+                        PressedBorderColor: =Self.BorderColor
+                        PressedColor: =Self.Color
+                        PressedFill: =Self.Fill
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "previous").text
+                        ZIndex: =1
+
+                    btnContinueRSTE As button:
+                        Fill: =LookUp(Colors, Color = "Primary", RGB)
+                        FocusedBorderColor: =LookUp(Colors, Color = "Focus Primary", RGB)
+                        FocusedBorderThickness: |-
+                            =Average(2.5 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                2.5 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        FontWeight: =FontWeight.Bold
+                        HoverBorderColor: =LookUp(Colors, Color = "Muted Primary", RGB)
+                        HoverFill: =RGBA(28, 87, 138, 1)
+                        OnSelect: |+
+                            =UpdateContext({locLoading: true});
+                            IfError(
+                                Concurrent(
+                                    Patch('Draft travel expenses / Frais de voyage soumis',
+                                        LookUp('Draft travel expenses / Frais de voyage soumis', ID = selectedClaimID),
+                                        { Status: {
+                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                            Value: "SUBMITTED"
+                                            }
+                                        }
+                                    ),
+                                    Office365Outlook.SendEmailV2(
+                                        gblFinanceEmail, 
+                                        LookUp(colTranslations, language.Value = "en" && key = "claim.submitted.email.notification.title").text & " / " & 
+                                        LookUp(colTranslations, language.Value = "fr" && key = "claim.submitted.email.notification.title").text,
+                                        Concatenate(
+                                            LookUp(colTranslations, language.Value = "en" && key = "travel.claim.approval.notification.body").text,
+                                            "<br/><br/>=================================================================<br/><br/>" &
+                                            LookUp(colTranslations, language.Value = "fr" && key = "travel.claim.approval.notification.body").text
+                                        ),
+                                        {
+                                            Importance: "Normal"
+                                        }
+                                    )
+                                );
+                                Navigate('Confirmation - Travel / Hospitality Expense', ScreenTransition.Fade, { locClaimType: "TRAVEL", locInitLoad: true }),
+                            
+                                Notify(LookUp(colTranslations, language.Value = varCurrentLanguage && key = "error.something.went.wrong.could.not.save.claim").text);
+                                UpdateContext({locLoading: false});
+                            )
+                            
+                        PressedBorderColor: =Self.BorderColor
+                        PressedColor: =Self.Color
+                        PressedFill: =Self.Fill
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =lblStatusRSTE.Size
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "continue").text
+                        ZIndex: =2
+
+            cntrHeaderBarRSTE As groupContainer.manualLayoutContainer:
+                Height: =cntrShapesRSTE.Height
+                Width: =cntrPageBodyRSTE.Width
+                X: =lblPageHeaderRSTE.X
+                Y: =lblPageHeaderRSTE.Y + lblPageHeaderRSTE.Height 
+                ZIndex: =5
+
+                cntrShapesRSTE As groupContainer.verticalAutoLayoutContainer:
+                    Height: =shpRedLineRSTE.Height + shpBackgroundAreaRSTE.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    shpRedLineRSTE As rectangle:
+                        Fill: =RGBA(175, 60, 67, 1)
+                        Height: =2
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    shpBackgroundAreaRSTE As rectangle:
+                        Fill: =RGBA(240, 240, 240, 1)
+                        Height: =36
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                cntrActiveUserRSTE As groupContainer.verticalAutoLayoutContainer:
+                    Height: =shpBackgroundAreaRSTE.Height
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =Self.PaddingTop
+                    PaddingRight: |-
+                        =Average(15 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1),
+                                15 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1) 
+                        )
+                    PaddingTop: |-
+                        =Average(3 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1),
+                                3 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1) 
+                        )
+                    Width: =Parent.Width
+                    Y: =shpRedLineRSTE.Height
+                    ZIndex: =2
+
+                    icoPersonRSTE As icon.Person:
+                        FocusedBorderThickness: =0
+                        Height: |-
+                            =Average(22.4 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                22.4 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        HoverBorderColor: =Self.BorderColor
+                        HoverColor: =Self.Color
+                        Icon: =Icon.Person
+                        Width: =Self.Height
+                        ZIndex: =1
+
+                    lblActiveUserRSTE As label:
+                        AutoHeight: =true
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =gblUser.FullName
+                        Width: =Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight
+                        ZIndex: =2
+
+            lblPageHeaderRSTE As label:
+                AutoHeight: =!IsBlank(Self.Text)
+                FontWeight: =FontWeight.Semibold
+                Role: =TextRole.Heading1
+                Size: |-
+                    =Average(30.4 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        30.4 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.submit.travel.title").text
+                Visible: =!IsBlank(Self.Text)
+                Width: =cntrPageBodyRSTE.Width
+                X: =Parent.Width/2 - Self.Width/2
+                Y: |-
+                    =cmp_GCThemeMenuRSTE.Y + cmp_GCThemeMenuRSTE.MainMenuHeight + 
+                    Average(40 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        40 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                ZIndex: =6
+
+            cmp_GCThemeMenuRSTE As cmp_GCThemeMenu:
+                ContentWidth: =cntrPageBodyRSTE.Width
+                Height: =Self.ComponentHeight
+                MenuFontSize: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                MenuItems: |-
+                    =Table({
+                            Id:0,
+                            Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "home").text,
+                            Screen: 'Dashboard Screen'
+                        },
+                        {
+                            Id:1,
+                            Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "enter.a.claim").text,
+                            SubMenu: [
+                            {
+                                SubMenuId: 0,
+                                Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim").text,
+                                Screen: 'Enter Claim'
+                            },
+                            {
+                                SubMenuId: 1,
+                                Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim").text,
+                                Screen: 'Enter Claim'
+                            }
+                            ]
+                        }
+                    )
+                onSelectNavigationLink: |-
+                    =UpdateContext({locLoading: true});
+                    Set(gblClaimType, 
+                        Switch(cmp_GCThemeMenuRSTE.SelectedMenuItem, 
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim").text,
+                            "TRAVEL",
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim").text,
+                            "HOSPITALITY"
+                        )
+                    )
+                Width: =Parent.Width
+                X: =cmp_GCThemeHeaderRSTE.X
+                Y: =cmp_GCThemeHeaderRSTE.Y + cmp_GCThemeHeaderRSTE.Height
+                ZIndex: =7
+
+            cmp_GCThemeHeaderRSTE As cmp_GCThemeHeader:
+                appName: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "app.name").text
+                AppNameTextRole: ="text"
+                ContentWidth: =cntrPageBodyRSTE.Width
+                Height: =Self.ComponentHeight
+                LanguageLinkFontSize: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingRSTE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsRSTE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                languageLinkText: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "language.switch").text
+                onLanguageChange: =Set(varCurrentLanguage, Switch(varCurrentLanguage, "en", "fr", "en"));
+                Visible: =true
+                Width: =Parent.Width
+                ZIndex: =8
+
+    cmpSpinnerClearRSTE As cmp_SpinnerClear:
+        Height: =Parent.Height
+        Visible: =locLoading
+        Width: =Parent.Width
+        ZIndex: =4
+
+    grpScreenSizingRSTE As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =4
+
+        cmpScreenFunctionsRSTE As cmp_ScreenFunctions:
+            AppHeight: =App.Height
+            AppHeightBreakPoints: =AppHeightBreakpoints
+            Height: =1
+            Visible: =false
+            Width: =1
+
+        lblScreenWidthSizingRSTE As label:
+            Height: =1
+            Size: =0
+            Text: =Parent.Size
+            Visible: =false
+            Width: =1
+            ZIndex: =2
+
+    cmpSpinnerOpaqueRSTE As cmp_SpinnerOpaque:
+        Height: =Parent.Height
+        Visible: =locInitLoad
+        Width: =Parent.Width
+        ZIndex: =5
+
+    tmrLoadingRSTE As timer:
+        AutoPause: =false
+        AutoStart: =true
+        Duration: =1000
+        Height: =0
+        OnTimerEnd: |-
+            =UpdateContext({locInitLoad: false})
+        Repeat: =true
+        Size: =0
+        Start: =locInitLoad
+        TabIndex: =-1
+        Text: =""
+        Visible: =false
+        Width: =0
+        X: =20
+        Y: =20
+        ZIndex: =6
+

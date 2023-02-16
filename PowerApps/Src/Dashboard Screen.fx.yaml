@@ -1,0 +1,1491 @@
+"'Dashboard Screen' As screen":
+    OnHidden: =false
+    OnVisible: |-
+        =UpdateContext({locLoading: false});
+        
+        Concurrent(
+            ClearCollect(col_MyTravelClaims,
+                    With(
+                    {
+                        records: SortByColumns(
+                                    Filter('Draft travel expenses / Frais de voyage soumis', 'Created By'.Email = User().Email && Status.Value = "IN PROGRESS"), 
+                                    "Name_x0020__x002f__x0020_Nom", Ascending, "Created", Ascending
+                                )
+                    },
+                    ForAll(
+                        Sequence(CountRows(records)),
+                        Patch(
+                            Last(
+                                FirstN(records,Value)),
+                                {RowNumber: Value}
+                            )
+                        )
+                    )
+            ),
+            ClearCollect(col_MyHospitalityClaims,
+                    With(
+                    {
+                        records: SortByColumns(
+                                        Filter('Draft hospitality expenses / ​​​​​​​​​​​​​​​​​​​​​Frais d''accueil soumis', 'Created By'.Email = User().Email && Status.Value = "IN PROGRESS"),
+                                        "Name_x0020__x002f__x0020_Nom", Ascending, "Created", Ascending
+                                    )
+                    },
+                    ForAll(
+                        Sequence(CountRows(records)),
+                        Patch(
+                            Last(
+                                FirstN(records,Value)),
+                                {RowNumber: Value}
+                            )
+                        )
+                    )
+            )
+        );
+
+    canScrollableAreaDS As fluidGrid.fluidGridWithBlankCard:
+        AcceptsFocus: =true
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Visible: =!locInitLoad
+        Width: =Parent.Width
+        X: =0.00
+        ZIndex: =3
+
+        canCanvasCardDS As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =
+            Width: =Parent.Width
+            X: =0.00
+            Y: =2
+            ZIndex: =3
+
+            cmp_GCThemeFooterDS As cmp_GCThemeFooter:
+                contactLinkEN: |-
+                    ="mailto:" & gblFinanceEmail
+                contactLinkFR: |-
+                    ="mailto:" & gblFinanceEmail
+                ContentWidth: =cntrPageBodyDS.Width
+                Height: |-
+                    =Average(85.77 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        85.77 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Language: =varCurrentLanguage
+                LinkFontSize: |-
+                    =Average(11.2 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        11.2 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Width: =Parent.Width
+                X: =Parent.Width/2 - Self.Width/2
+                Y: |-
+                    =If(
+                        cntrPageBodyDS.Y + cntrPageBodyDS.Height + 
+                        Average(40 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            40 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        ) + cmp_GCThemeFooterDS.Height >= App.Height,
+                        cntrPageBodyDS.Y + cntrPageBodyDS.Height + 
+                        Average(40 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            40 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        ),
+                        App.Height - Self.Height
+                    )
+
+            cntrPageBodyDS As groupContainer.verticalAutoLayoutContainer:
+                Height: =cntrClaimsSectionDS.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                LayoutMode: =LayoutMode.Auto
+                Visible: |
+                    =true
+                Width: |-
+                    =/*Average(1 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, Parent.Width * 0.9,  
+                            ScreenSize.Medium, Parent.Width * 0.9,
+                            ScreenSize.Large, Parent.Width * 0.6,  
+                            Parent.Width * 0.48),
+                        1 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, Parent.Width * 0.9,  
+                            ScreenSize.Medium, Parent.Width * 0.9,
+                            ScreenSize.Large, Parent.Width * 0.6,  
+                            Parent.Width * 0.48) 
+                    )*/
+                    1 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, Parent.Width * 0.9,  
+                            ScreenSize.Medium, Parent.Width * 0.9,
+                            ScreenSize.Large, Parent.Width * 0.75,  
+                            Parent.Width * 0.6)
+                X: =Parent.Width/2 - Self.Width/2
+                Y: |-
+                    =Self.LayoutGap +
+                    cntrHeaderBarDS.Y + cntrHeaderBarDS.Height
+                ZIndex: =3
+
+                cntrClaimsSectionDS As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =lblFormInfoDS.Height + Self.LayoutGap + cntrTravelDS.Height + Self.LayoutGap + cntrHospitalityDS.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: |-
+                        =Average(20 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            20 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        )
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =4
+
+                    lblFormInfoDS As htmlViewer:
+                        AutoHeight: =true
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =105.42
+                        HtmlText: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "welcome.to.ised.thd.site").text
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    cntrTravelDS As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(246, 88, 16, 1)
+                        FillPortions: =0
+                        Height: =lblTravelClaimsDS.Height + Self.LayoutGap + If(CountRows(col_MyTravelClaims) > 0, cntrTravelClaimsDS.Height, lblTCNoOutstandingClaimsDS.Height)
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: |-
+                            =Average(5 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                5 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                        lblTravelClaimsDS As label:
+                            AutoHeight: =true
+                            FontWeight: =FontWeight.Bold
+                            Role: =TextRole.Heading2
+                            Size: |-
+                                =Average(16 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                        ScreenSize.Small, 0.5,  
+                                        ScreenSize.Medium, 0.75,
+                                        ScreenSize.Large, 1,  
+                                        1.25),
+                                    16 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                        ScreenSize.Small, 0.5,  
+                                        ScreenSize.Medium, 0.75,
+                                        ScreenSize.Large, 1,  
+                                        1.25) 
+                                )
+                            Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claims").text
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                        lblTCNoOutstandingClaimsDS As label:
+                            AutoHeight: =true
+                            Size: |-
+                                =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                        ScreenSize.Small, 0.5,  
+                                        ScreenSize.Medium, 0.75,
+                                        ScreenSize.Large, 1,  
+                                        1.25),
+                                    12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                        ScreenSize.Small, 0.5,  
+                                        ScreenSize.Medium, 0.75,
+                                        ScreenSize.Large, 1,  
+                                        1.25) 
+                                )
+                            Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "no.outstanding.expenses.exist").text
+                            Visible: =CountRows(col_MyTravelClaims) = 0
+                            Width: =Parent.Width
+                            ZIndex: =3
+
+                        cntrTravelClaimsDS As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            BorderColor: =RGBA(0, 121, 187, 1)
+                            FillPortions: =0
+                            Height: =cntrTravelClaimsListHeaderDS.Height + shpTCSeparatorHeaderTableDS.Height + galMyTravelClaimsDS.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Visible: =CountRows(col_MyTravelClaims) > 0
+                            Width: =Parent.Width
+                            ZIndex: =4
+
+                            cntrTravelClaimsListHeaderDS As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                Fill: =RGBA(204, 204, 204, 1)
+                                FillPortions: =0
+                                Height: =Max(lblTCGvtOfficial.Height, lblTCDateEntered.Height, lblTCTotal.Height, lblTCStatus.Height, lblTCActions.Height)
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                                lblTCGvtOfficial As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: |-
+                                        =Parent.Width * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.2,  
+                                                ScreenSize.Medium, 0.2,
+                                                ScreenSize.Large, 0.22,  
+                                                0.22)
+                                    PaddingBottom: =15
+                                    PaddingLeft: =10
+                                    PaddingRight: =10
+                                    PaddingTop: =15
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "government.official").text
+                                    Width: =Parent.Width
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =6
+
+                                lblTCDateEntered As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =lblTCGvtOfficial.LayoutMinWidth
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "date.entered").text
+                                    Width: =Parent.Width - Self.BorderThickness
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =7
+
+                                lblTCTotal As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =lblTCGvtOfficial.LayoutMinWidth
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "total").text
+                                    Width: =Parent.Width - Self.BorderThickness
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =8
+
+                                lblTCStatus As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =lblTCGvtOfficial.LayoutMinWidth
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "status").text
+                                    Width: =Parent.Width - Self.BorderThickness
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =9
+
+                                lblTCActions As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =Parent.Width - (lblTCGvtOfficial.LayoutMinWidth * 4)
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "actions").text
+                                    Width: =Parent.Width - Self.BorderThickness
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =10
+
+                            shpTCSeparatorHeaderTableDS As rectangle:
+                                Fill: =RGBA(0, 0, 0, 1)
+                                Height: =3
+                                Width: =Parent.Width
+                                Y: =
+                                ZIndex: =2
+
+                            "galMyTravelClaimsDS As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                BorderColor: =RGBA(109, 49, 162, 1)
+                                BorderStyle: =BorderStyle.Dashed
+                                FillPortions: =0
+                                FocusedBorderThickness: =0
+                                Height: =(CountRows(galMyTravelClaimsDS.AllItems) * Self.TemplateHeight)
+                                Items: =col_MyTravelClaims
+                                Layout: =Layout.Vertical
+                                LayoutMinHeight: =287
+                                LayoutMinWidth: =320
+                                TemplateFill: |-
+                                    =If(
+                                        Mod(ThisItem.RowNumber,2) = 0,
+                                        RGBA(0, 0, 0, 0),
+                                        RGBA(238, 238, 238, 1)
+                                    )
+                                TemplatePadding: =0
+                                TemplateSize: |-
+                                    =Average(60 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25),
+                                        60 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25) 
+                                    )
+                                Width: =Parent.Width
+                                ZIndex: =3
+
+                                shpTCSeparatorRowsDS As rectangle:
+                                    Fill: =RGBA(0, 0, 0, 1)
+                                    Height: =1
+                                    OnSelect: =Select(Parent)
+                                    Width: =Parent.TemplateWidth
+                                    Y: =Parent.TemplateHeight - 1
+                                    ZIndex: =6
+
+                                cntrTCRowDS As groupContainer.verticalAutoLayoutContainer:
+                                    BorderColor: =RGBA(255, 0, 0, 1)
+                                    Fill: |-
+                                        =/*If(Mod(ThisItem.RowNumber,2) = 0,
+                                            RGBA(238, 238, 238, 1),
+                                            RGBA(0, 0, 0, 0)
+                                        )*/
+                                        RGBA(0, 0, 0, 0)
+                                    Height: |-
+                                        =Average(60 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            60 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutMode: =LayoutMode.Auto
+                                    Width: =Parent.TemplateWidth
+                                    ZIndex: =7
+
+                                    lblTCRowGvtOfficialDS As label:
+                                        FillPortions: =1
+                                        Height: =Parent.Height
+                                        LayoutMinWidth: =lblTCGvtOfficial.LayoutMinWidth
+                                        PaddingBottom: =0
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =0
+                                        Size: |-
+                                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        Text: =ThisItem.'Name / Nom'
+                                        Width: =lblTCGvtOfficial.LayoutMinWidth
+                                        Y: =Parent.Height/2 - Self.Height/2
+                                        ZIndex: =6
+
+                                    lblTCRowDateEnteredDS As label:
+                                        AutoHeight: =true
+                                        FillPortions: =1
+                                        Height: =Parent.Height
+                                        LayoutMinWidth: =lblTCRowGvtOfficialDS.LayoutMinWidth
+                                        PaddingBottom: =0
+                                        PaddingTop: =0
+                                        Size: |-
+                                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        Text: =Text(DateValue(ThisItem.Created), "yyyy-mm-dd")
+                                        Width: =lblTCRowGvtOfficialDS.LayoutMinWidth
+                                        Y: =Parent.Height/2 - Self.Height/2
+                                        ZIndex: =7
+
+                                    lblTCRowTotalDS As label:
+                                        AutoHeight: =true
+                                        FillPortions: =1
+                                        Height: =Parent.Height
+                                        LayoutMinWidth: =lblTCRowGvtOfficialDS.LayoutMinWidth
+                                        PaddingBottom: =0
+                                        PaddingTop: =0
+                                        Size: |-
+                                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        Text: |-
+                                            ="$" & If(Value(ThisItem.Total) > 0, Text(Value(ThisItem.Total), "##.00"), "0.00")
+                                        Width: =lblTCRowGvtOfficialDS.LayoutMinWidth
+                                        Y: =Parent.Height/2 - Self.Height/2
+                                        ZIndex: =8
+
+                                    lblTCRowStatusDS As label:
+                                        AutoHeight: =true
+                                        FillPortions: =1
+                                        Height: =Parent.Height
+                                        LayoutMinWidth: =lblTCRowGvtOfficialDS.LayoutMinWidth
+                                        PaddingBottom: =0
+                                        PaddingTop: =0
+                                        Size: |-
+                                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        Text: |-
+                                            =Switch(ThisItem.Status.Value,
+                                                "IN PROGRESS",
+                                                LookUp(colTranslations, language.Value = varCurrentLanguage && key = "in.progress").text,
+                                                LookUp(colTranslations, language.Value = varCurrentLanguage && key = "submitted").text
+                                            )
+                                        Width: =lblTCRowGvtOfficialDS.LayoutMinWidth
+                                        Y: =Parent.Height/2 - Self.Height/2
+                                        ZIndex: =9
+
+                                    cntrTCActionButtonsDS As groupContainer.horizontalAutoLayoutContainer:
+                                        AlignInContainer: =AlignInContainer.SetByContainer
+                                        Height: =Parent.Height
+                                        LayoutAlignItems: =LayoutAlignItems.Center
+                                        LayoutGap: |-
+                                            =Average(18 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.25,  
+                                                    ScreenSize.Medium, 0.5,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                18 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.25,  
+                                                    ScreenSize.Medium, 0.5,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =lblTCActions.Width
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingLeft: =imgTCEditDS.FocusedBorderThickness
+                                        PaddingRight: =imgTCDeleteDS.FocusedBorderThickness
+                                        Width: =lblTCActions.Width
+                                        ZIndex: =10
+
+                                        imgTCEditDS As image:
+                                            AccessibleLabel: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "edit.the.travel.claim.for").text & ThisItem.'Name / Nom'
+                                            FocusedBorderColor: =LookUp(Colors, Color = "Focus Primary", RGB)
+                                            FocusedBorderThickness: |-
+                                                =Average(2.5 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25),
+                                                    2.5 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25) 
+                                                )
+                                            Height: =Self.Width
+                                            HoverBorderColor: =RGBA(0,0,0,0)
+                                            Image: ='edit-black'
+                                            OnSelect: |-
+                                                =UpdateContext({locLoading:true});
+                                                Set(gblClaimType, "TRAVEL");
+                                                Navigate('Enter Claim', ScreenTransition.Fade, { selectedClaimID : ThisItem.ID});
+                                            PaddingBottom: =Self.PaddingTop
+                                            PaddingLeft: =Self.PaddingTop
+                                            PaddingRight: =imgTCEditDS.PaddingTop
+                                            PaddingTop: |-
+                                                =Average(2 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25),
+                                                    2 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25) 
+                                                )
+                                            PressedBorderColor: =RGBA(0,0,0,0)
+                                            TabIndex: =0
+                                            Width: |-
+                                                =Average(25 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                        ScreenSize.Small, 0.4,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25),
+                                                    25 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                        ScreenSize.Small, 0.4,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25) 
+                                                )
+                                            ZIndex: =1
+
+                                        imgTCDeleteDS As image:
+                                            AccessibleLabel: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "delete.the.travel.claim.for").text & ThisItem.'Name / Nom'
+                                            FocusedBorderColor: =LookUp(Colors, Color = "Focus Primary", RGB)
+                                            FocusedBorderThickness: |-
+                                                =Average(2.5 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25),
+                                                    2.5 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25) 
+                                                )
+                                            Height: =Self.Width
+                                            HoverBorderColor: =RGBA(0,0,0,0)
+                                            Image: ='trash-red'
+                                            OnSelect: |-
+                                                =UpdateContext({locLoading:true});
+                                                Navigate('Claim Deletion Screen', ScreenTransition.Fade, { locDeleteClaimID: ThisItem.ID, locClaimType: "TRAVEL", locInitLoad: true })
+                                            PaddingBottom: =imgTCEditDS.PaddingTop
+                                            PaddingLeft: =imgTCEditDS.PaddingTop
+                                            PaddingRight: =imgTCEditDS.PaddingTop
+                                            PaddingTop: =imgTCEditDS.PaddingTop
+                                            PressedBorderColor: =RGBA(0,0,0,0)
+                                            TabIndex: =0
+                                            Width: =imgTCEditDS.Width
+                                            ZIndex: =2
+
+                    cntrHospitalityDS As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =lblHospitalityClaimsDS.Height + Self.LayoutGap + If(CountRows(col_MyHospitalityClaims) > 0, cntrHospitalityClaimsDS.Height, lblHCNoOutstandingClaimsDS.Height)
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: |-
+                            =Average(5 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                5 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        lblHospitalityClaimsDS As label:
+                            AutoHeight: =true
+                            FontWeight: =FontWeight.Bold
+                            Role: =TextRole.Heading2
+                            Size: |-
+                                =Average(16 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                        ScreenSize.Small, 0.5,  
+                                        ScreenSize.Medium, 0.75,
+                                        ScreenSize.Large, 1,  
+                                        1.25),
+                                    16 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                        ScreenSize.Small, 0.5,  
+                                        ScreenSize.Medium, 0.75,
+                                        ScreenSize.Large, 1,  
+                                        1.25) 
+                                )
+                            Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claims").text
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                        lblHCNoOutstandingClaimsDS As label:
+                            AutoHeight: =true
+                            Size: |-
+                                =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                        ScreenSize.Small, 0.5,  
+                                        ScreenSize.Medium, 0.75,
+                                        ScreenSize.Large, 1,  
+                                        1.25),
+                                    12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                        ScreenSize.Small, 0.5,  
+                                        ScreenSize.Medium, 0.75,
+                                        ScreenSize.Large, 1,  
+                                        1.25) 
+                                )
+                            Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "no.outstanding.expenses.exist").text
+                            Visible: =CountRows(col_MyHospitalityClaims) = 0
+                            Width: =Parent.Width
+                            ZIndex: =3
+
+                        cntrHospitalityClaimsDS As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =cntrHospitalityClaimsListHeaderDS.Height + shpHCSeparatorHeaderTableDS.Height + galMyHospitalityClaimsDS.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Visible: =CountRows(col_MyHospitalityClaims) > 0
+                            Width: =Parent.Width
+                            ZIndex: =4
+
+                            cntrHospitalityClaimsListHeaderDS As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                Fill: =RGBA(204, 204, 204, 1)
+                                FillPortions: =0
+                                Height: =Max(lblHCGvtOfficial.Height, lblHCDateEntered.Height, lblHCTotal.Height, lblHCStatus.Height, lblHCActions.Height)
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                                lblHCGvtOfficial As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =lblTCGvtOfficial.LayoutMinWidth
+                                    PaddingBottom: =15
+                                    PaddingLeft: =10
+                                    PaddingRight: =10
+                                    PaddingTop: =15
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "government.official").text
+                                    Width: =Parent.Width
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =6
+
+                                lblHCDateEntered As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =lblHCGvtOfficial.LayoutMinWidth
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "date.entered").text
+                                    Width: =Parent.Width - Self.BorderThickness
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =7
+
+                                lblHCTotal As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =lblHCGvtOfficial.LayoutMinWidth
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "total").text
+                                    Width: =Parent.Width - Self.BorderThickness
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =8
+
+                                lblHCStatus As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =lblHCGvtOfficial.LayoutMinWidth
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "status").text
+                                    Width: =Parent.Width - Self.BorderThickness
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =9
+
+                                lblHCActions As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(0, 0, 0, 1)
+                                    Fill: =RGBA(204, 204, 204, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =0
+                                    LayoutMinWidth: =Parent.Width - (lblHCGvtOfficial.LayoutMinWidth * 4)
+                                    Size: |-
+                                        =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25),
+                                            12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                ScreenSize.Small, 0.5,  
+                                                ScreenSize.Medium, 0.75,
+                                                ScreenSize.Large, 1,  
+                                                1.25) 
+                                        )
+                                    Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "actions").text
+                                    Width: =Parent.Width - Self.BorderThickness
+                                    X: =Parent.Width/2 - Self.Width/2
+                                    Y: =Parent.Height/2 - Self.Height/2
+                                    ZIndex: =10
+
+                            shpHCSeparatorHeaderTableDS As rectangle:
+                                Fill: =RGBA(0, 0, 0, 1)
+                                Height: =3
+                                Width: =Parent.Width
+                                Y: =
+                                ZIndex: =2
+
+                            "galMyHospitalityClaimsDS As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                BorderColor: =RGBA(109, 49, 162, 1)
+                                BorderStyle: =BorderStyle.Dashed
+                                FillPortions: =0
+                                Height: =CountRows(galMyHospitalityClaimsDS.AllItems) * Self.TemplateHeight + (CountRows(galMyHospitalityClaimsDS.AllItems) * shpHCSeparatorRowsDS.Height)
+                                Items: =col_MyHospitalityClaims
+                                Layout: =Layout.Vertical
+                                LayoutMinHeight: =287
+                                LayoutMinWidth: =320
+                                TemplateFill: |-
+                                    =If(
+                                        Mod(ThisItem.RowNumber,2) = 0,
+                                        RGBA(0, 0, 0, 0),
+                                        RGBA(238, 238, 238, 1)
+                                    )
+                                TemplatePadding: =0
+                                TemplateSize: |-
+                                    =Average(60 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25),
+                                        60 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                            ScreenSize.Small, 0.5,  
+                                            ScreenSize.Medium, 0.75,
+                                            ScreenSize.Large, 1,  
+                                            1.25) 
+                                    )
+                                Width: =Parent.Width
+                                X: =40
+                                Y: =40
+                                ZIndex: =3
+
+                                shpHCSeparatorRowsDS As rectangle:
+                                    Fill: =RGBA(0, 0, 0, 1)
+                                    Height: =1
+                                    OnSelect: =Select(Parent)
+                                    Width: =Parent.TemplateWidth
+                                    Y: =Parent.TemplateHeight - 1
+                                    ZIndex: =6
+
+                                cntrHCRowDS As groupContainer.verticalAutoLayoutContainer:
+                                    Fill: |-
+                                        =/*If(Mod(ThisItem.RowNumber,2) = 0,
+                                            RGBA(238, 238, 238, 1),
+                                            RGBA(0, 0, 0, 0)
+                                        )*/
+                                        RGBA(0, 0, 0, 0)
+                                    Height: =Parent.TemplateHeight
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutMode: =LayoutMode.Auto
+                                    Width: =Parent.TemplateWidth
+                                    ZIndex: =7
+
+                                    lblHCRowGvtOfficialDS As label:
+                                        FillPortions: =1
+                                        Height: =Parent.Height
+                                        LayoutMinWidth: =lblHCGvtOfficial.LayoutMinWidth
+                                        PaddingBottom: =0
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =0
+                                        Size: |-
+                                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        Text: =ThisItem.'Name / Nom'
+                                        Width: =lblHCGvtOfficial.Width
+                                        Y: =Parent.Height/2 - Self.Height/2
+                                        ZIndex: =6
+
+                                    lblHCRowDateEnteredDS As label:
+                                        AutoHeight: =true
+                                        FillPortions: =1
+                                        Height: =Parent.Height
+                                        LayoutMinWidth: =lblHCRowGvtOfficialDS.LayoutMinWidth
+                                        PaddingBottom: =0
+                                        PaddingTop: =0
+                                        Size: |-
+                                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        Text: =Text(DateValue(ThisItem.Created), "yyyy-mm-dd")
+                                        Width: =lblHCGvtOfficial.Width
+                                        Y: =Parent.Height/2 - Self.Height/2
+                                        ZIndex: =7
+
+                                    lblHCRowTotalDS As label:
+                                        AutoHeight: =true
+                                        FillPortions: =1
+                                        Height: =Parent.Height
+                                        LayoutMinWidth: =lblHCRowGvtOfficialDS.LayoutMinWidth
+                                        PaddingBottom: =0
+                                        PaddingTop: =0
+                                        Size: |-
+                                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        Text: |-
+                                            ="$" & If(Value(ThisItem.Total) > 0, Text(Value(ThisItem.Total), "##.00"), "0.00")
+                                        Width: =lblHCRowGvtOfficialDS.LayoutMinWidth
+                                        Y: =Parent.Height/2 - Self.Height/2
+                                        ZIndex: =8
+
+                                    lblHCRowStatusDS As label:
+                                        AutoHeight: =true
+                                        FillPortions: =1
+                                        Height: =Parent.Height
+                                        LayoutMinWidth: =lblHCRowGvtOfficialDS.LayoutMinWidth
+                                        PaddingBottom: =0
+                                        PaddingTop: =0
+                                        Size: |-
+                                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.5,  
+                                                    ScreenSize.Medium, 0.75,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        Text: |-
+                                            =Switch(ThisItem.Status.Value,
+                                                "IN PROGRESS",
+                                                LookUp(colTranslations, language.Value = varCurrentLanguage && key = "in.progress").text,
+                                                LookUp(colTranslations, language.Value = varCurrentLanguage && key = "submitted").text
+                                            )
+                                        Width: =lblHCRowGvtOfficialDS.LayoutMinWidth
+                                        Y: =Parent.Height/2 - Self.Height/2
+                                        ZIndex: =9
+
+                                    cntrHCActionButtonsDS As groupContainer.horizontalAutoLayoutContainer:
+                                        AlignInContainer: =AlignInContainer.SetByContainer
+                                        Height: =Parent.Height
+                                        LayoutAlignItems: =LayoutAlignItems.Center
+                                        LayoutGap: |-
+                                            =Average(18 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                    ScreenSize.Small, 0.25,  
+                                                    ScreenSize.Medium, 0.5,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25),
+                                                18 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                    ScreenSize.Small, 0.25,  
+                                                    ScreenSize.Medium, 0.5,
+                                                    ScreenSize.Large, 1,  
+                                                    1.25) 
+                                            )
+                                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =lblHCActions.Width
+                                        LayoutMode: =LayoutMode.Auto
+                                        Width: =Parent.Width
+                                        ZIndex: =10
+
+                                        imgHCEditDS As image:
+                                            AccessibleLabel: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "edit.the.hospitality.claim.for").text & ThisItem.'Name / Nom'
+                                            FocusedBorderColor: =LookUp(Colors, Color = "Focus Primary", RGB)
+                                            FocusedBorderThickness: |-
+                                                =Average(2.5 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25),
+                                                    2.5 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25) 
+                                                )
+                                            Height: =Self.Width
+                                            HoverBorderColor: =RGBA(0,0,0,0)
+                                            Image: ='edit-black'
+                                            OnSelect: |-
+                                                =UpdateContext({locLoading:true});
+                                                Set(gblClaimType, "HOSPITALITY");
+                                                Navigate('Enter Claim', ScreenTransition.Fade, { selectedClaimID : ThisItem.ID });
+                                            PaddingBottom: =Self.PaddingTop
+                                            PaddingLeft: =Self.PaddingTop
+                                            PaddingRight: =imgHCEditDS.PaddingTop
+                                            PaddingTop: |-
+                                                =Average(2 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25),
+                                                    2 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25) 
+                                                )
+                                            PressedBorderColor: =RGBA(0,0,0,0)
+                                            TabIndex: =0
+                                            Width: |-
+                                                =Average(25 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                        ScreenSize.Small, 0.4,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25),
+                                                    25 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                        ScreenSize.Small, 0.4,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25) 
+                                                )
+                                            ZIndex: =1
+
+                                        imgHCDeleteDS As image:
+                                            AccessibleLabel: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "delete.the.hospitality.claim.for").text & ThisItem.'Name / Nom'
+                                            FocusedBorderColor: =LookUp(Colors, Color = "Focus Primary", RGB)
+                                            FocusedBorderThickness: |-
+                                                =Average(2.5 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25),
+                                                    2.5 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                                        ScreenSize.Small, 0.5,  
+                                                        ScreenSize.Medium, 0.75,
+                                                        ScreenSize.Large, 1,  
+                                                        1.25) 
+                                                )
+                                            Height: =Self.Width
+                                            HoverBorderColor: =RGBA(0,0,0,0)
+                                            Image: ='trash-red'
+                                            OnSelect: |-
+                                                =UpdateContext({locLoading:true});
+                                                Navigate('Claim Deletion Screen', ScreenTransition.Fade, { locDeleteClaimID: ThisItem.ID, locClaimType: "HOSPITALITY", locInitLoad: true })
+                                            PaddingBottom: =imgHCEditDS.PaddingTop
+                                            PaddingLeft: =imgHCEditDS.PaddingTop
+                                            PaddingRight: =imgHCEditDS.PaddingTop
+                                            PaddingTop: =imgHCEditDS.PaddingTop
+                                            PressedBorderColor: =RGBA(0,0,0,0)
+                                            TabIndex: =0
+                                            Width: =imgHCEditDS.Width
+                                            ZIndex: =2
+
+            cntrHeaderBarDS As groupContainer.manualLayoutContainer:
+                Height: =cntrShapesDS.Height
+                Width: =cntrPageBodyDS.Width
+                X: =lblPageHeaderDS.X
+                Y: =lblPageHeaderDS.Y + lblPageHeaderDS.Height
+                ZIndex: =4
+
+                cntrShapesDS As groupContainer.verticalAutoLayoutContainer:
+                    Height: =shpRedLineDS.Height + shpBackgroundAreaDS.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    shpRedLineDS As rectangle:
+                        Fill: =RGBA(175, 60, 67, 1)
+                        Height: =2
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    shpBackgroundAreaDS As rectangle:
+                        Fill: =RGBA(240, 240, 240, 1)
+                        Height: =36
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                cntrActiveUserDS As groupContainer.verticalAutoLayoutContainer:
+                    Height: =shpBackgroundAreaDS.Height
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =Self.PaddingTop
+                    PaddingRight: |-
+                        =Average(15 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1),
+                                15 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1) 
+                        )
+                    PaddingTop: |-
+                        =Average(3 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1),
+                                3 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1) 
+                        )
+                    Width: =Parent.Width
+                    Y: =shpRedLineDS.Height
+                    ZIndex: =2
+
+                    icoPersonDS As icon.Person:
+                        FocusedBorderThickness: =0
+                        Height: |-
+                            =Average(22.4 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                22.4 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        HoverBorderColor: =Self.BorderColor
+                        HoverColor: =Self.Color
+                        Icon: =Icon.Person
+                        Width: =Self.Height
+                        ZIndex: =1
+
+                    lblActiveUserDS As label:
+                        AutoHeight: =true
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =gblUser.FullName
+                        Width: =Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight
+                        ZIndex: =2
+
+            lblPageHeaderDS As label:
+                AutoHeight: =!IsBlank(Self.Text)
+                FontWeight: =FontWeight.Semibold
+                Role: =TextRole.Heading1
+                Size: |-
+                    =Average(30.4 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        30.4 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Text: |-
+                    =LookUp(
+                        colTranslations,
+                        language.Value = varCurrentLanguage && key = "outstanding.claims"
+                    ).text
+                Visible: =!IsBlank(Self.Text)
+                Width: =cntrPageBodyDS.Width
+                X: =Parent.Width/2 - Self.Width/2
+                Y: |-
+                    =cmp_GCThemeMenuDS.Y + cmp_GCThemeMenuDS.MainMenuHeight + 
+                    Average(40 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        40 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                ZIndex: =5
+
+            cmp_GCThemeMenuDS As cmp_GCThemeMenu:
+                ContentWidth: =cntrPageBodyDS.Width
+                Height: =cmp_GCThemeMenuDS.ComponentHeight
+                MenuFontSize: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                MenuItems: |-
+                    =Table({
+                            Id:0,
+                            Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "home").text,
+                            Screen: 'Dashboard Screen'
+                        },
+                        {
+                            Id:1,
+                            Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "enter.a.claim").text,
+                            SubMenu: [
+                            {
+                                SubMenuId: 0,
+                                Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim").text,
+                                Screen: 'Enter Claim'
+                            },
+                            {
+                                SubMenuId: 1,
+                                Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim").text,
+                                Screen: 'Enter Claim'
+                            }
+                            ]
+                        }
+                    )
+                onSelectNavigationLink: |-
+                    =UpdateContext({locLoading:true});
+                    Set(gblClaimType, 
+                        Switch(cmp_GCThemeMenuDS.SelectedMenuItem, 
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim").text,
+                            "TRAVEL",
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim").text,
+                            "HOSPITALITY"
+                        )
+                    )
+                Width: =Parent.Width
+                X: =cmp_GCThemeHeaderDS.X
+                Y: =cmp_GCThemeHeaderDS.Y + cmp_GCThemeHeaderDS.Height
+                ZIndex: =6
+
+            cmp_GCThemeHeaderDS As cmp_GCThemeHeader:
+                appName: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "app.name").text
+                AppNameFontSize: |-
+                    =Average(20 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        20 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                ContentWidth: =cntrPageBodyDS.Width
+                Height: =Self.ComponentHeight
+                LanguageLinkFontSize: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingDS.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsDS.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                languageLinkText: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "language.switch").text
+                onLanguageChange: =Set(varCurrentLanguage, Switch(varCurrentLanguage, "en", "fr", "en"));
+                Visible: =true
+                Width: =Parent.Width
+                ZIndex: =7
+
+    cmpSpinnerOpaqueDS As cmp_SpinnerOpaque:
+        Height: =Parent.Height
+        Visible: =locInitLoad
+        Width: =Parent.Width
+        ZIndex: =4
+
+    grpScreenSizingDS As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =4
+
+        cmpScreenFunctionsDS As cmp_ScreenFunctions:
+            AppHeight: =App.Height
+            AppHeightBreakPoints: =AppHeightBreakpoints
+            Height: =1
+            Visible: =false
+            Width: =1
+
+        lblScreenWidthSizingDS As label:
+            Height: =1
+            Size: =0
+            Text: =Parent.Size
+            Visible: =false
+            Width: =1
+            ZIndex: =2
+
+    cmpSpinnerClearDS As cmp_SpinnerClear:
+        Height: =Parent.Height
+        Visible: =locLoading
+        Width: =Parent.Width
+        ZIndex: =5
+
+    tmrLoadingDS As timer:
+        AutoPause: =false
+        AutoStart: =true
+        BorderThickness: =0
+        Duration: =1500
+        Height: =0
+        OnTimerEnd: |
+            =UpdateContext({locInitLoad: false});
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =0
+        TabIndex: =-1
+        Visible: =false
+        Width: =0
+        X: =-1
+        Y: =-1
+        ZIndex: =6
+

@@ -1,0 +1,82 @@
+{
+  "7a095836-e469-4801-aa6f-f7ff4b48d253": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/gateway/greyhound/3000.150.11/1.0.1613.3116/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://033gc.sharepoint.com/sites/DEVTravelHospitalityDisclosureDB81": {
+        "dataSources": {
+          "Draft hospitality expenses / ​​​​​​​​​​​​​​​​​​​​​Frais d'accueil soumis": {
+            "tableName": "1677b0dd-a855-4af2-acdf-8c37b4c8064a"
+          },
+          "Draft travel expenses / Frais de voyage soumis": {
+            "tableName": "f18bc06e-2dc0-40fc-bd37-be48cdaf2625"
+          },
+          "Government Officials / Représentants du gouvernement": {
+            "tableName": "b6f0f01f-69a7-4aad-bfaf-8eafb6152595"
+          },
+          "Translations": {
+            "tableName": "78f86a7d-6e45-402c-9861-c084cd0bfa16"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Government Officials / Représentants du gouvernement",
+      "Translations",
+      "Draft travel expenses / Frais de voyage soumis",
+      "Draft hospitality expenses / ​​​​​​​​​​​​​​​​​​​​​Frais d'accueil soumis"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "7a095836-e469-4801-aa6f-f7ff4b48d253"
+  },
+  "a315e142-20eb-4919-b3e5-a94ac2edfb57": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1611/1.0.1611.3104/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "a315e142-20eb-4919-b3e5-a94ac2edfb57"
+  },
+  "b4def496-4b06-4c49-9209-bdecd5b5d608": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1617/1.0.1617.3171/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "b4def496-4b06-4c49-9209-bdecd5b5d608"
+  }
+}

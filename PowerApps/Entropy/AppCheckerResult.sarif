@@ -1,0 +1,4117 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json",
+  "runs": [
+    {
+      "columnKind": "utf16CodeUnits",
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "results": [
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galMenu_GCTM.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galMenu_GCTM.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_GCThemeMenu",
+                "type": "cmp_GCThemeMenu.galMenu_GCTM"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galMenu_GCTM.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galMenu_GCTM.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_GCThemeMenu",
+                "type": "cmp_GCThemeMenu.galMenu_GCTM"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galMenu_GCTM.imgSubMenu_GCTM.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galMenu_GCTM.imgSubMenu_GCTM.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_GCThemeMenu",
+                "type": "cmp_GCThemeMenu.galMenu_GCTM.imgSubMenu_GCTM"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galMenu_GCTM.imgSubMenu_GCTM.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galMenu_GCTM.imgSubMenu_GCTM.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_GCThemeMenu",
+                "type": "cmp_GCThemeMenu.galMenu_GCTM.imgSubMenu_GCTM"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galSubMenu_GCTM.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galSubMenu_GCTM.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_GCThemeMenu",
+                "type": "cmp_GCThemeMenu.galSubMenu_GCTM"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galSubMenu_GCTM.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.galSubMenu_GCTM.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_GCThemeMenu",
+                "type": "cmp_GCThemeMenu.galSubMenu_GCTM"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.shpSubMenuItemLine_GCTM.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.shpSubMenuItemLine_GCTM.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_GCThemeMenu",
+                "type": "cmp_GCThemeMenu.shpSubMenuItemLine_GCTM"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.shpSubMenuItemLine_GCTM.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeMenu.shpSubMenuItemLine_GCTM.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_GCThemeMenu",
+                "type": "cmp_GCThemeMenu.shpSubMenuItemLine_GCTM"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeAlert.cntrAlert_GCTA.grpInfoAlert_GCTA.shpLine_GCTA.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeAlert.cntrAlert_GCTA.grpInfoAlert_GCTA.shpLine_GCTA.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_GCThemeAlert",
+                "type": "cmp_GCThemeAlert.cntrAlert_GCTA.grpInfoAlert_GCTA.shpLine_GCTA"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GCThemeAlert.cntrAlert_GCTA.grpInfoAlert_GCTA.shpLine_GCTA.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_GCThemeAlert.cntrAlert_GCTA.grpInfoAlert_GCTA.shpLine_GCTA.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_GCThemeAlert",
+                "type": "cmp_GCThemeAlert.cntrAlert_GCTA.grpInfoAlert_GCTA.shpLine_GCTA"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrMonthAndMonthSelector_DIACP.galNextPrevMonth_DIACP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrMonthAndMonthSelector_DIACP.galNextPrevMonth_DIACP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrMonthAndMonthSelector_DIACP.galNextPrevMonth_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrMonthAndMonthSelector_DIACP.galNextPrevMonth_DIACP.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrMonthAndMonthSelector_DIACP.galNextPrevMonth_DIACP.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrMonthAndMonthSelector_DIACP.galNextPrevMonth_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galWeekday_DIACP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galWeekday_DIACP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galWeekday_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galWeekday_DIACP.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galWeekday_DIACP.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galWeekday_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galMonthDay_DIACP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galMonthDay_DIACP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galMonthDay_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galMonthDay_DIACP.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galMonthDay_DIACP.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.cntrDatePicker_DIACP.cntrCalendarArea_DIACP.cntrCalendar_DIACP.cntrWeekAndDay_DIACP.galMonthDay_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP.ShowValue"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP.ShowValue",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "ShowValue",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "acc-StateIndicationTextNeeded",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.sldrUpdateCalendarVisibility_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP.ShowValue"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP.ShowValue",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "ShowValue",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "acc-StateIndicationTextNeeded",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "cmp_DateInputAndCalendarPicker",
+                "type": "cmp_DateInputAndCalendarPicker.sldrUpdateDateSelected_DIACP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.shpTCSeparatorHeaderTableDS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.shpTCSeparatorHeaderTableDS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.shpTCSeparatorHeaderTableDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.shpTCSeparatorHeaderTableDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.shpTCSeparatorHeaderTableDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.shpTCSeparatorHeaderTableDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowGvtOfficialDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowGvtOfficialDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowGvtOfficialDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowGvtOfficialDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowGvtOfficialDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowGvtOfficialDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowDateEnteredDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowDateEnteredDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowDateEnteredDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowDateEnteredDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowDateEnteredDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowDateEnteredDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowTotalDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowTotalDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowTotalDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowTotalDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowTotalDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowTotalDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowStatusDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowStatusDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowStatusDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowStatusDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowStatusDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrTravelDS.cntrTravelClaimsDS.galMyTravelClaimsDS.cntrTCRowDS.lblTCRowStatusDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.shpHCSeparatorHeaderTableDS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.shpHCSeparatorHeaderTableDS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.shpHCSeparatorHeaderTableDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.shpHCSeparatorHeaderTableDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.shpHCSeparatorHeaderTableDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.shpHCSeparatorHeaderTableDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowGvtOfficialDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowGvtOfficialDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowGvtOfficialDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowGvtOfficialDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowGvtOfficialDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowGvtOfficialDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowDateEnteredDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowDateEnteredDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowDateEnteredDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowDateEnteredDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowDateEnteredDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowDateEnteredDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowTotalDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowTotalDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowTotalDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowTotalDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowTotalDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowTotalDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowStatusDS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowStatusDS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowStatusDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowStatusDS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowStatusDS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Dashboard Screen",
+                "type": "'Dashboard Screen'.canScrollableAreaDS.canCanvasCardDS.cntrPageBodyDS.cntrClaimsSectionDS.cntrHospitalityDS.cntrHospitalityClaimsDS.galMyHospitalityClaimsDS.cntrHCRowDS.lblHCRowStatusDS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableTopRSTE.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableTopRSTE.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Review and Submit - Travel Expense",
+                "type": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableTopRSTE"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableTopRSTE.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableTopRSTE.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Review and Submit - Travel Expense",
+                "type": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableTopRSTE"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorHeaderTableRSTE.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorHeaderTableRSTE.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Review and Submit - Travel Expense",
+                "type": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorHeaderTableRSTE"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorHeaderTableRSTE.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorHeaderTableRSTE.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Review and Submit - Travel Expense",
+                "type": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorHeaderTableRSTE"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.cntrExpensesRSTE.shpSeparatorTotalRSTE.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.cntrExpensesRSTE.shpSeparatorTotalRSTE.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Review and Submit - Travel Expense",
+                "type": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.cntrExpensesRSTE.shpSeparatorTotalRSTE"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.cntrExpensesRSTE.shpSeparatorTotalRSTE.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.cntrExpensesRSTE.shpSeparatorTotalRSTE.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Review and Submit - Travel Expense",
+                "type": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.cntrExpensesRSTE.shpSeparatorTotalRSTE"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableEndRSTE.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableEndRSTE.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Review and Submit - Travel Expense",
+                "type": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableEndRSTE"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableEndRSTE.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableEndRSTE.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Review and Submit - Travel Expense",
+                "type": "'Review and Submit - Travel Expense'.canScrollableAreaRSTE.canCanvasCardRSTE.cntrPageBodyRSTE.cntrTableRSTE.shpSeparatorTableEndRSTE"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.btnResetScrollPositionEC.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.btnResetScrollPositionEC.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.btnResetScrollPositionEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrEstablishmentOrVendorEnEC.txtEstablishmentOrVendorEnEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrEstablishmentOrVendorEnEC.txtEstablishmentOrVendorEnEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrEstablishmentOrVendorEnEC.txtEstablishmentOrVendorEnEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrEstablishmentOrVendorFrEC.txtEstablishmentOrVendorFrEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrEstablishmentOrVendorFrEC.txtEstablishmentOrVendorFrEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrEstablishmentOrVendorFrEC.txtEstablishmentOrVendorFrEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrAttendeesEC.cntrGoCOfficialsEC.txtGoCOfficialsEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrAttendeesEC.cntrGoCOfficialsEC.txtGoCOfficialsEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrAttendeesEC.cntrGoCOfficialsEC.txtGoCOfficialsEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrAttendeesEC.cntrGuestsEC.txtGuestsEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrAttendeesEC.cntrGuestsEC.txtGuestsEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrAttendeesEC.cntrGuestsEC.txtGuestsEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrGvtOfficialEC.cmbGvtOfficialEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrGvtOfficialEC.cmbGvtOfficialEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrGvtOfficialEC.cmbGvtOfficialEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrPurposeOfTravel/HospActivityEnEC'.'txtPurposeOfTravel/HospActivityEnEC'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrPurposeOfTravel/HospActivityEnEC'.'txtPurposeOfTravel/HospActivityEnEC'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrPurposeOfTravel/HospActivityEnEC'.'txtPurposeOfTravel/HospActivityEnEC'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrPurposeOfTravel/HospActivityFrEC'.'txtPurposeOfTravel/HospActivityFrEC'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrPurposeOfTravel/HospActivityFrEC'.'txtPurposeOfTravel/HospActivityFrEC'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrPurposeOfTravel/HospActivityFrEC'.'txtPurposeOfTravel/HospActivityFrEC'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDestination/LocationEnEC'.'txtDestination/LocationEnEC'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDestination/LocationEnEC'.'txtDestination/LocationEnEC'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDestination/LocationEnEC'.'txtDestination/LocationEnEC'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDestination/LocationFrEC'.'txtDestination/LocationFrEC'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDestination/LocationFrEC'.'txtDestination/LocationFrEC'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDestination/LocationFrEC'.'txtDestination/LocationFrEC'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrHospitalityExpensesEC.cntrYesNoEC.rbtnYesOrNoEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrHospitalityExpensesEC.cntrYesNoEC.rbtnYesOrNoEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrHospitalityExpensesEC.cntrYesNoEC.rbtnYesOrNoEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrHospitalityTotalCostEC.cntrTotalInputEC.txtTotalCostEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrHospitalityTotalCostEC.cntrTotalInputEC.txtTotalCostEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrHospitalityTotalCostEC.cntrTotalInputEC.txtTotalCostEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrTravelAuthNumEC.txtTravelAuthNumEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrTravelAuthNumEC.txtTravelAuthNumEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrTravelAuthNumEC.txtTravelAuthNumEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrAirfareEC.cntrAirfairInputEC.txtAirfareEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrAirfareEC.cntrAirfairInputEC.txtAirfareEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrAirfareEC.cntrAirfairInputEC.txtAirfareEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrOtherTransportationEC.cntrOtherTransportationInputEC.txtOtherTransportationInfoEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrOtherTransportationEC.cntrOtherTransportationInputEC.txtOtherTransportationInfoEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrOtherTransportationEC.cntrOtherTransportationInputEC.txtOtherTransportationInfoEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrAccomodationEC.cntrAccomodationInputEC.txtAccomodationEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrAccomodationEC.cntrAccomodationInputEC.txtAccomodationEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrAccomodationEC.cntrAccomodationInputEC.txtAccomodationEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrMealsAndInciEC.cntrMealsAndInciInputEC.txtMealsAndInciEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrMealsAndInciEC.cntrMealsAndInciInputEC.txtMealsAndInciEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrMealsAndInciEC.cntrMealsAndInciInputEC.txtMealsAndInciEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrOtherExpensesEC.cntrOtherExpensesInputEC.txtOtherExpensesEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrOtherExpensesEC.cntrOtherExpensesInputEC.txtOtherExpensesEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrOtherExpensesEC.cntrOtherExpensesInputEC.txtOtherExpensesEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrTravelTotalEC.cntrTotalnputEC.txtTotalTextEC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrTravelTotalEC.cntrTotalnputEC.txtTotalTextEC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.cntrFinancialInfoEC.cntrTravelTotalEC.cntrTotalnputEC.txtTotalTextEC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDescOfOtherExpenses/AddCommentsEC'.'cntrDescOfOtherExpenses/AddCommentsEnEC'.'txtDescOfOtherExpenses/AddCommentsEnEC'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDescOfOtherExpenses/AddCommentsEC'.'cntrDescOfOtherExpenses/AddCommentsEnEC'.'txtDescOfOtherExpenses/AddCommentsEnEC'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDescOfOtherExpenses/AddCommentsEC'.'cntrDescOfOtherExpenses/AddCommentsEnEC'.'txtDescOfOtherExpenses/AddCommentsEnEC'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDescOfOtherExpenses/AddCommentsEC'.'cntrDescOfOtherExpenses/AddCommentssFrEC'.'txtDescOfOtherExpenses/AddCommentsFrEC'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDescOfOtherExpenses/AddCommentsEC'.'cntrDescOfOtherExpenses/AddCommentssFrEC'.'txtDescOfOtherExpenses/AddCommentsFrEC'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Enter Claim",
+                "type": "'Enter Claim'.canScrollableAreaEC.canCanvasCardEC.cntrPageBodyEC.'cntrDescOfOtherExpenses/AddCommentsEC'.'cntrDescOfOtherExpenses/AddCommentssFrEC'.'txtDescOfOtherExpenses/AddCommentsFrEC'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.back_arrow (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.back_arrow (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "back_arrow (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.book_a_seat (purple)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.book_a_seat (purple)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "book_a_seat (purple)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.book_a_seat (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.book_a_seat (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "book_a_seat (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.my_bookings (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.my_bookings (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "my_bookings (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.my_bookings (purple)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.my_bookings (purple)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "my_bookings (purple)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.my_profile (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.my_profile (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "my_profile (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.my_profile (purple)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.my_profile (purple)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "my_profile (purple)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.cancel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.cancel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "cancel",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.calendar (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.calendar (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "calendar (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.clock (purple)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.clock (purple)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "clock (purple)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.location_pin (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.location_pin (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "location_pin (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.attachment (purple)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.attachment (purple)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "attachment (purple)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.building (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.building (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "building (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.person_booking (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.person_booking (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "person_booking (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.loading_spinner"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.loading_spinner",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "loading_spinner",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.checkmark"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.checkmark",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "checkmark",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.calendar (purple)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.calendar (purple)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "calendar (purple)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.clock (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.clock (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "clock (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.app_icon"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.app_icon",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "app_icon",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.attachment (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.attachment (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "attachment (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.cancel (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.cancel (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "cancel (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.search"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.search",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "search",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.alert_circle"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.alert_circle",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "alert_circle",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.empty_calendar"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.empty_calendar",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "empty_calendar",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.alert_circle (red)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.alert_circle (red)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "alert_circle (red)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.feedback"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.feedback",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "feedback",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.cancel (primary)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.cancel (primary)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "cancel (primary)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.open-link (primary)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.open-link (primary)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "open-link (primary)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.chevron right (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.chevron right (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "chevron right (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.tech support (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.tech support (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "tech support (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.tools (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.tools (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "tools (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.search (light grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.search (light grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "search (light grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.my_profile (deselected - purple)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.my_profile (deselected - purple)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "my_profile (deselected - purple)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.zoom_in"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.zoom_in",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "zoom_in",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.zoom_out"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.zoom_out",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "zoom_out",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.red_pill"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.red_pill",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "red_pill",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.purple_pill"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.purple_pill",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "purple_pill",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.green_pill"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.green_pill",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "green_pill",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.search (primary)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.search (primary)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "search (primary)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.search (white)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.search (white)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "search (white)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.clear (grey)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.clear (grey)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "clear (grey)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.clear (white)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.clear (white)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "clear (white)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.chevron right (purple)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.chevron right (purple)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "chevron right (purple)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.red_pill_test"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.red_pill_test",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "red_pill_test",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.icon"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.icon",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "icon",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Image (1)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Image (1)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Image (1)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Icon awesome-user (1)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Icon awesome-user (1)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Icon awesome-user (1)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.GoC - Signature - EN"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.GoC - Signature - EN",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "GoC - Signature - EN",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Icon awesome-user-circle (1)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Icon awesome-user-circle (1)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Icon awesome-user-circle (1)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.icons8-unchecked-radio-button-24"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.icons8-unchecked-radio-button-24",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "icons8-unchecked-radio-button-24",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Icon awesome-user-circle (2)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Icon awesome-user-circle (2)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Icon awesome-user-circle (2)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Radio button - Selected"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Radio button - Selected",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Radio button - Selected",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.PowerAddictWaterMark1"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.PowerAddictWaterMark1",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "PowerAddictWaterMark1",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.FullColor_TextOnly_1024x1024_72dpi"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.FullColor_TextOnly_1024x1024_72dpi",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FullColor_TextOnly_1024x1024_72dpi",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.info icon (light blue)"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.info icon (light blue)",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "info icon (light blue)",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "IntroductionScreen.OnVisible"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "IntroductionScreen.OnVisible",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnVisible",
+                "module": "IntroductionScreen",
+                "type": "IntroductionScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "IntroductionScreen.OnVisible"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "IntroductionScreen.OnVisible",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnVisible",
+                "module": "IntroductionScreen",
+                "type": "IntroductionScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        }
+      ],
+      "tool": {
+        "driver": {
+          "fullName": "PowerApps app checker",
+          "name": "PowerApps app checker",
+          "rules": [
+            {
+              "id": "acc-AccessibleLabelNeeded",
+              "messageStrings": {
+                "issue": {
+                  "text": "Missing accessible label"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Edit the accessible label property to describe the item."
+                ],
+                "level": "Medium",
+                "primaryCategory": "accessibility",
+                "whyFix": "If there's no accessible text, people who can’t see the screen won't understand what’s in images and controls."
+              }
+            },
+            {
+              "id": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+              "messageStrings": {
+                "issue": {
+                  "text": "Missing tab stop"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Set TabIndex to 0 or greater to ensure that interactive elements have a tab stop."
+                ],
+                "level": "Medium",
+                "primaryCategory": "accessibility",
+                "whyFix": "People who use the keyboard with your app will not be able to access this element without a tab stop."
+              }
+            },
+            {
+              "id": "acc-StateIndicationTextNeeded",
+              "messageStrings": {
+                "issue": {
+                  "text": "Add State indication text"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Set ShowValue = true to show the current state of the control."
+                ],
+                "level": "Low",
+                "primaryCategory": "accessibility",
+                "whyFix": "Users won't get confirmation of their actions if the state of the control isn't showing."
+              }
+            },
+            {
+              "id": "acc-FocusBorderShouldBeVisible",
+              "messageStrings": {
+                "issue": {
+                  "text": "Focus isn't showing"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Change the FocusedBorderThickness property to be more than 0."
+                ],
+                "level": "Medium",
+                "primaryCategory": "accessibility",
+                "whyFix": "If the focus isn't visible, people who don't use a mouse won't be able to see it when they're interacting with the app."
+              }
+            },
+            {
+              "id": "app-UnusedMediaResources",
+              "messageStrings": {
+                "issue": {
+                  "text": "Unused media files"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Remove the unused media file in the Media pane."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "This media file is not referenced by any control formulas so it is not needed. Removing it will improve performance."
+              }
+            },
+            {
+              "id": "app-CollectDelegatableDataSource",
+              "messageStrings": {
+                "issue": {
+                  "text": "The rows retrieved from the data source may not be complete."
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Limit the data collected from the data source by updating the formula \"ClearCollect(colTranslations, Translations)\" to include a filtering function, such as 'Filter' or 'Search'."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "Using the 'Collect' function to create a collection directly from a connected data source may not load every row if the data source is too large."
+              }
+            }
+          ],
+          "version": "1.327"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

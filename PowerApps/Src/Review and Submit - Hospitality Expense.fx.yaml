@@ -1,0 +1,692 @@
+"'Review and Submit - Hospitality Expense' As screen":
+    OnHidden: |-
+        =UpdateContext({locResetScrollPosition: false, selectedClaimID: Blank()});
+    OnVisible: |-
+        =UpdateContext({locInitLoad:true, locLoading:false, locResetScrollPosition: true})
+
+    canScrollableAreaRSHE As fluidGrid.fluidGridWithBlankCard:
+        AcceptsFocus: =true
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width
+        X: =0.00
+        ZIndex: =3
+
+        canCanvasCardRSHE As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =100
+            Visible: =locResetScrollPosition
+            Width: =Parent.Width
+            X: =0.00
+            Y: =2
+            ZIndex: =3
+
+            cmp_GCThemeFooterRSHE As cmp_GCThemeFooter:
+                contactLinkEN: |-
+                    ="mailto:" & gblFinanceEmail
+                contactLinkFR: |-
+                    ="mailto:" & gblFinanceEmail
+                ContentWidth: =cntrPageBodyRSHE.Width
+                Height: |-
+                    =Average(85.77 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        85.77 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Language: =varCurrentLanguage
+                LinkFontSize: |-
+                    =Average(11.2 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        11.2 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Width: =Parent.Width
+                Y: |-
+                    =cntrPageBodyRSHE.Y + cntrPageBodyRSHE.Height + 
+                    Average(40 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        40 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+
+            cntrPageBodyRSHE As groupContainer.verticalAutoLayoutContainer:
+                BorderColor: =RGBA(39, 113, 194, 1)
+                Height: |-
+                    =cmpReviewInfoRSHE.Height + Self.LayoutGap +
+                    htmlReviewContentsRSHE.Height + Self.LayoutGap + 
+                    cntrActionButtonsRSHE.Height + Self.LayoutGap
+                    /*cntrStatusRSHE.Height + Self.LayoutGap +
+                    cntrGovOfficialRSHE.Height + Self.LayoutGap +
+                    cntrPurposeEnRSHE.Height + Self.LayoutGap +
+                    cntrPurposeFrRSHE.Height + Self.LayoutGap +
+                    cntrStartDateRSHE.Height + Self.LayoutGap +
+                    cntrEndDateRSHE.Height + Self.LayoutGap +
+                    cntrLocationEnRSHE.Height + Self.LayoutGap +
+                    cntrLocationFrRSHE.Height + Self.LayoutGap +
+                    cntrEstablishmentEnRSHE.Height + Self.LayoutGap +
+                    cntrEstablishmentFrRSHE.Height + Self.LayoutGap +
+                    cntrAttendeesGoCRSHE.Height + Self.LayoutGap +
+                    cntrAttendeesGuestsRSHE.Height + Self.LayoutGap +
+                    cntrTotalRSHE.Height + Self.LayoutGap +
+                    cntrAdditionalCommentsEnRSHE.Height + Self.LayoutGap +
+                    cntrAdditionalCommentsFrRSHE.Height + Self.LayoutGap +
+                    cntrActionButtonsRSHE.Height + Self.LayoutGap*/
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: |-
+                    =Average(6 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        6 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                LayoutMode: =LayoutMode.Auto
+                Width: |-
+                    =1 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, Parent.Width * 0.9,  
+                            ScreenSize.Medium, Parent.Width * 0.9,
+                            ScreenSize.Large, Parent.Width * 0.75,  
+                            Parent.Width * 0.6)
+                X: =Parent.Width/2 - Self.Width/2
+                Y: |-
+                    =cntrHeaderBarRSHE.Y + cntrHeaderBarRSHE.Height + 
+                    Average(12 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                ZIndex: =2
+
+                cmpReviewInfoRSHE As cmp_GCThemeAlert:
+                    AlertContent: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.submit.claim.info").text
+                    AlertTitle: =""
+                    AlertType: ="INFO"
+                    ContentFontSize: |-
+                        =Average(12 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            12 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        )
+                    ContentWidth: =Parent.Width
+                    Height: =Self.ComponentHeight
+                    LayoutMinHeight: =640
+                    LayoutMinWidth: =640
+                    TitleFontSize: =0
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                htmlReviewContentsRSHE As htmlViewer:
+                    AutoHeight: =true
+                    HtmlText: |-
+                        ="<strong>" & LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.status").text & "</strong> " & 
+                            If(gblNewHospitalityRecord.Status.Value = "IN PROGRESS", 
+                                LookUp(colTranslations, language.Value = varCurrentLanguage && key = "in.progress").text, 
+                                LookUp(colTranslations, language.Value = varCurrentLanguage && key = "submitted").text) & "<br><br>" &
+                        "<strong>" & LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.government.official").text & "</strong> " & gblNewHospitalityRecord.'Name / Nom' 
+                        & "<br><br>" & 
+                        "<div style='display: flex; margin-bottom: 0'>" &
+                            "<div style='float: left; white-space: nowrap'>" & 
+                                "<strong>" & 
+                                    LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.purpose.english").text &
+                                "</strong> " &
+                            "</div>" & 
+                            "<div style='float: right'>" &
+                                "<p style='margin: 0; padding-left: 4pt'>" & 
+                                    PlainText(gblNewHospitalityRecord.'Purpose (EN)') & 
+                                "</p>" &
+                            "</div>" & 
+                        "</div>" & "<br>" & 
+                        "<div style='display: flex; margin-bottom: 0'>" &
+                            "<div style='float: left; white-space: nowrap'>" & 
+                                "<strong>" & 
+                                    LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.purpose.french").text &
+                                "</strong> " &
+                            "</div>" & 
+                            "<div style='float: right'>" &
+                                "<p style='margin: 0; padding-left: 4pt'>" & 
+                                    PlainText(gblNewHospitalityRecord.'Purpose (FR)') & 
+                                "</p>" &
+                            "</div>" & 
+                        "</div>" & "<br>" &
+                        "<strong>" & LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.start.date").text & "</strong> " & Text(gblNewHospitalityRecord.'Start Date / Date de début ', "mm/dd/yyyy")
+                        & "<br><br>" & 
+                        "<strong>" & LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.end.date").text & "</strong> " & Text(gblNewHospitalityRecord.'End Date / Date de fin ', "mm/dd/yyyy")
+                        & "<br><br>" &
+                        "<div style='display: flex; margin-bottom: 0'>" &
+                            "<div style='float: left; white-space: nowrap'>" & 
+                                "<strong>" & 
+                                    LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.location.english").text &
+                                "</strong> " &
+                            "</div>" & 
+                            "<div style='float: right'>" &
+                                "<p style='margin: 0; padding-left: 4pt'>" & 
+                                    PlainText(gblNewHospitalityRecord.'Location / Emplacement (EN)') & 
+                                "</p>" &
+                            "</div>" & 
+                        "</div>" & "<br>" & 
+                        "<div style='display: flex; margin-bottom: 0'>" &
+                            "<div style='float: left; white-space: nowrap'>" & 
+                                "<strong>" & 
+                                    LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.location.french").text &
+                                "</strong> " &
+                            "</div>" & 
+                            "<div style='float: right'>" &
+                                "<p style='margin: 0; padding-left: 4pt'>" & 
+                                    PlainText(gblNewHospitalityRecord.'Location / Emplacement (FR)') & 
+                                "</p>" &
+                            "</div>" & 
+                        "</div>" & "<br>" & 
+                        "<div style='display: flex; margin-bottom: 0'>" &
+                            "<div style='float: left; white-space: nowrap'>" & 
+                                "<strong>" & 
+                                    LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.establishment.or.vendor.english").text &
+                                "</strong> " &
+                            "</div>" & 
+                            "<div style='float: right'>" &
+                                "<p style='margin: 0; padding-left: 4pt'>" & 
+                                    PlainText(gblNewHospitalityRecord.'Vendor / Fournisseurs (EN)') & 
+                                "</p>" &
+                            "</div>" & 
+                        "</div>" & "<br>" & 
+                        "<div style='display: flex; margin-bottom: 0'>" &
+                            "<div style='float: left; white-space: nowrap'>" & 
+                                "<strong>" & 
+                                    LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.establishment.or.vendor.french").text &
+                                "</strong> " &
+                            "</div>" & 
+                            "<div style='float: right'>" &
+                                "<p style='margin: 0; padding-left: 4pt'>" & 
+                                    PlainText(gblNewHospitalityRecord.'Vendor / Fournisseurs (FR)') & 
+                                "</p>" &
+                            "</div>" & 
+                        "</div>" & "<br>" & 
+                        "<strong>" & LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.attendees.govt.officials").text & "</strong> " & gblNewHospitalityRecord.'Attend. (Emp) / Particip. (Emp) '
+                        & "<br><br>" &
+                        "<strong>" & LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.attendees.guests").text & "</strong> " & gblNewHospitalityRecord.'Attend. (Guests) / Particip. (Invités)'
+                        & "<br><br>" &
+                        "<strong>" & LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.total").text & "</strong> " & Concatenate("$",Text(gblNewHospitalityRecord.Total, "0.00"))
+                        & "<br><br>" &
+                        "<div style='display: flex; margin-bottom: 0'>" &
+                            "<div style='float: left; white-space: nowrap'>" & 
+                                "<strong>" & 
+                                    LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.additional.comments.english").text &
+                                "</strong> " &
+                            "</div>" & 
+                            "<div style='float: right'>" &
+                                "<p style='margin: 0; padding-left: 4pt'>" & 
+                                    PlainText(gblNewHospitalityRecord.'Addition. CMTS (EN)') & 
+                                "</p>" &
+                            "</div>" & 
+                        "</div>" & "<br>" & 
+                        "<div style='display: flex; margin-bottom: 0'>" &
+                            "<div style='float: left; white-space: nowrap'>" & 
+                                "<strong>" & 
+                                    LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.additional.comments.french").text &
+                                "</strong> " &
+                            "</div>" & 
+                            "<div style='float: right'>" &
+                                "<p style='margin: 0; padding-left: 4pt'>" & 
+                                    PlainText(gblNewHospitalityRecord.'Addition. CMTS (FR)') &
+                                "</p>" &
+                            "</div>" & 
+                        "</div>" & "<br>"
+                    Size: |-
+                        =Average(12 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            12 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        )
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                cntrActionButtonsRSHE As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Max(btnPreviousRSHE.Height, btnContinueRSHE.Height + btnContinueRSHE.FocusedBorderThickness * 2)
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: |
+                        =Average(15 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25),
+                            15 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 1,  
+                                1.25) 
+                        )
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =btnPreviousRSHE.BorderThickness
+                    Width: =Parent.Width
+                    ZIndex: =18
+
+                    btnPreviousRSHE As button:
+                        Color: =RGBA(39, 67, 125, 1)
+                        Fill: =LookUp(Colors, Color = "Secondary", RGB)
+                        FocusedBorderColor: =LookUp(Colors, Color = "Focus Primary", RGB)
+                        FocusedBorderThickness: |-
+                            =Average(2.5 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                2.5 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        FontWeight: =FontWeight.Bold
+                        HoverBorderColor: =LookUp(Colors, Color = "Muted Primary", RGB)
+                        HoverFill: =RGBA(28, 87, 138, 1)
+                        OnSelect: |-
+                            =UpdateContext({locLoading: true});
+                            If(
+                                !IsBlank(selectedClaimID),
+                                
+                                Navigate(
+                                    'Enter Claim',
+                                    ScreenTransition.Fade,
+                                    {selectedClaimID: Value(selectedClaimID)}
+                                )
+                            )
+                        PressedBorderColor: =Self.BorderColor
+                        PressedColor: =Self.Color
+                        PressedFill: =Self.Fill
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "previous").text
+                        ZIndex: =1
+
+                    btnContinueRSHE As button:
+                        Fill: =LookUp(Colors, Color = "Primary", RGB)
+                        FocusedBorderColor: =LookUp(Colors, Color = "Focus Primary", RGB)
+                        FocusedBorderThickness: |-
+                            =Average(2.5 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                2.5 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        FontWeight: =FontWeight.Bold
+                        HoverBorderColor: =LookUp(Colors, Color = "Muted Primary", RGB)
+                        HoverFill: =RGBA(28, 87, 138, 1)
+                        OnSelect: |-
+                            =UpdateContext({locLoading: true});
+                            IfError(
+                                Patch('Draft hospitality expenses / ​​​​​​​​​​​​​​​​​​​​​Frais d''accueil soumis',
+                                        LookUp('Draft hospitality expenses / ​​​​​​​​​​​​​​​​​​​​​Frais d''accueil soumis', ID = selectedClaimID), 
+                                            { 
+                                            Status: {
+                                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                                Value: "SUBMITTED"
+                                            }
+                                        }
+                                ),
+                            
+                                Notify(LookUp(colTranslations, language.Value = varCurrentLanguage && key = "error.something.went.wrong.could.not.save.claim").text),
+                                Navigate('Confirmation - Travel / Hospitality Expense', ScreenTransition.Fade, { locClaimType: "HOSPITALITY", locInitLoad: true })
+                            )
+                        PressedBorderColor: =Self.BorderColor
+                        PressedColor: =Self.Color
+                        PressedFill: =Self.Fill
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "continue").text
+                        ZIndex: =2
+
+            cntrHeaderBarRSHE As groupContainer.manualLayoutContainer:
+                Height: =cntrShapesRSHE.Height
+                Width: =cntrPageBodyRSHE.Width
+                X: =lblPageHeaderRSHE.X
+                Y: =lblPageHeaderRSHE.Y + lblPageHeaderRSHE.Height
+                ZIndex: =3
+
+                cntrShapesRSHE As groupContainer.verticalAutoLayoutContainer:
+                    Height: =shpRedLineRSHE.Height + shpBackgroundAreaRSHE.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    shpRedLineRSHE As rectangle:
+                        Fill: =RGBA(175, 60, 67, 1)
+                        Height: =2
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    shpBackgroundAreaRSHE As rectangle:
+                        Fill: =RGBA(240, 240, 240, 1)
+                        Height: =36
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                cntrActiveUserRSHE As groupContainer.verticalAutoLayoutContainer:
+                    Height: =shpBackgroundAreaRSHE.Height
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =Self.PaddingTop
+                    PaddingRight: |-
+                        =Average(15 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1),
+                                15 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1) 
+                        )
+                    PaddingTop: |-
+                        =Average(3 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1),
+                                3 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                ScreenSize.Small, 0.5,  
+                                ScreenSize.Medium, 0.75,
+                                ScreenSize.Large, 0.9,  
+                                1) 
+                        )
+                    Width: =Parent.Width
+                    Y: =shpRedLineRSHE.Height
+                    ZIndex: =2
+
+                    icoPersonRSHE As icon.Person:
+                        FocusedBorderThickness: =0
+                        Height: |-
+                            =Average(22.4 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                22.4 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        HoverBorderColor: =Self.BorderColor
+                        HoverColor: =Self.Color
+                        Icon: =Icon.Person
+                        Width: =Self.Height
+                        ZIndex: =1
+
+                    lblActiveUserRSHE As label:
+                        AutoHeight: =true
+                        Size: |-
+                            =Average(12 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25),
+                                12 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                                    ScreenSize.Small, 0.5,  
+                                    ScreenSize.Medium, 0.75,
+                                    ScreenSize.Large, 1,  
+                                    1.25) 
+                            )
+                        Text: =gblUser.FullName
+                        Width: =Sum(AddColumns(Split(Self.Text, ""), "Size", LookUp(colCharsWidth, CharFont=Self.Font && CharWeight=Self.FontWeight && Char = Result).Size), Size) * Self.Size + Self.PaddingLeft + Self.PaddingRight
+                        ZIndex: =2
+
+            lblPageHeaderRSHE As label:
+                AutoHeight: =!IsBlank(Self.Text)
+                FontWeight: =FontWeight.Semibold
+                Role: =TextRole.Heading1
+                Size: |-
+                    =Average(30.4 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        30.4 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                Text: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "review.submit.hospitality.title").text
+                Visible: =!IsBlank(Self.Text)
+                Width: =cntrPageBodyRSHE.Width
+                X: =Parent.Width/2 - Self.Width/2
+                Y: |-
+                    =cmp_GCThemeMenuRSHE.Y + cmp_GCThemeMenuRSHE.MainMenuHeight + 
+                    Average(40 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        40 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                ZIndex: =4
+
+            cmp_GCThemeMenuRSHE As cmp_GCThemeMenu:
+                ContentWidth: =cntrPageBodyRSHE.Width
+                Height: =cmp_GCThemeMenuRSHE.ComponentHeight
+                MenuFontSize: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                MenuItems: |-
+                    =Table({
+                            Id:0,
+                            Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "home").text,
+                            Screen: 'Dashboard Screen'
+                        },
+                        {
+                            Id:1,
+                            Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "enter.a.claim").text,
+                            SubMenu: [
+                            {
+                                SubMenuId: 0,
+                                Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim").text,
+                                Screen: 'Enter Claim'
+                            },
+                            {
+                                SubMenuId: 1,
+                                Name: LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim").text,
+                                Screen: 'Enter Claim'
+                            }
+                            ]
+                        }
+                    )
+                onSelectNavigationLink: |-
+                    =UpdateContext({locLoading: true});
+                    Set(gblClaimType, 
+                        Switch(cmp_GCThemeMenuRSHE.SelectedMenuItem, 
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "travel.claim").text,
+                            "TRAVEL",
+                            LookUp(colTranslations, language.Value = varCurrentLanguage && key = "hospitality.claim").text,
+                            "HOSPITALITY"
+                        )
+                    )
+                Width: =Parent.Width
+                X: =cmp_GCThemeHeaderRSHE.X
+                Y: =cmp_GCThemeHeaderRSHE.Y + cmp_GCThemeHeaderRSHE.Height
+                ZIndex: =5
+
+            cmp_GCThemeHeaderRSHE As cmp_GCThemeHeader:
+                appName: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "app.name").text
+                AppNameFontSize: |-
+                    =Average(20 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        20 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                AppNameTextRole: ="text"
+                ContentWidth: =cntrPageBodyRSHE.Width
+                Height: =Self.ComponentHeight
+                LanguageLinkFontSize: |-
+                    =Average(12 * Switch(Value(lblScreenWidthSizingRSHE.Text),  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25),
+                        12 * Switch(cmpScreenFunctionsRSHE.ScreenSize,  
+                            ScreenSize.Small, 0.5,  
+                            ScreenSize.Medium, 0.75,
+                            ScreenSize.Large, 1,  
+                            1.25) 
+                    )
+                languageLinkText: =LookUp(colTranslations, language.Value = varCurrentLanguage && key = "language.switch").text
+                onLanguageChange: =Set(varCurrentLanguage, Switch(varCurrentLanguage, "en", "fr", "en"));
+                Visible: =true
+                Width: =Parent.Width
+                ZIndex: =6
+
+    cmpSpinnerClearRSHE As cmp_SpinnerClear:
+        Height: =Parent.Height
+        Visible: =locLoading
+        Width: =Parent.Width
+        ZIndex: =4
+
+    grpScreenSizingRSHE As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =4
+
+        cmpScreenFunctionsRSHE As cmp_ScreenFunctions:
+            AppHeight: =App.Height
+            AppHeightBreakPoints: =AppHeightBreakpoints
+            Height: =1
+            Visible: =false
+            Width: =1
+
+        lblScreenWidthSizingRSHE As label:
+            Height: =1
+            Size: =0
+            Text: =Parent.Size
+            Visible: =false
+            Width: =1
+            ZIndex: =2
+
+    cmpSpinnerOpaqueRSHE As cmp_SpinnerOpaque:
+        Height: =Parent.Height
+        Visible: =locInitLoad
+        Width: =Parent.Width
+        ZIndex: =5
+
+    tmrLoadingRSHE As timer:
+        AutoPause: =false
+        AutoStart: =true
+        Duration: =1000
+        Height: =0
+        OnTimerEnd: |-
+            =UpdateContext({locInitLoad: false})
+        Repeat: =true
+        Size: =0
+        Start: =locInitLoad
+        TabIndex: =-1
+        Text: =""
+        Visible: =false
+        Width: =0
+        X: =20
+        Y: =20
+        ZIndex: =6
+

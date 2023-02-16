@@ -1,0 +1,183 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentDefinitionInfo": {
+    "AllowAccessToGlobals": false,
+    "Children": [],
+    "ControlPropertyState": [
+      "Fill",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "Height",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "Width",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "X",
+      "Y",
+      "ZIndex",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "ChildTabPriority",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "",
+        "InvariantPropertyName": "EnableChildFocus",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "100",
+        "InvariantPropertyName": "AppHeight",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "AppHeightBreakPoints",
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "100",
+        "InvariantPropertyName": "ScreenSize",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      }
+    ],
+    "LastModifiedTimestamp": "638121544811704531",
+    "Name": "cmp_ScreenFunctions",
+    "Rules": [
+      {
+        "Category": "Data",
+        "InvariantScript": "0",
+        "Property": "AppHeight",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "{Small: 0, Medium: 1000, Large: 2000}",
+        "Property": "AppHeightBreakPoints",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "If(\r\n    Self.AppHeight > Self.AppHeightBreakPoints.Large,\r\n    ScreenSize.ExtraLarge,\r\n    If(\r\n        Self.AppHeight > Self.AppHeightBreakPoints.Medium && Self.AppHeight <= Self.AppHeightBreakPoints.Large,\r\n        ScreenSize.Large,\r\n        If(\r\n            Self.AppHeight > Self.AppHeightBreakPoints.Small && Self.AppHeight <= Self.AppHeightBreakPoints.Medium,\r\n            ScreenSize.Medium,\r\n            If(\r\n                Self.AppHeight <= Self.AppHeightBreakPoints.Small,\r\n                ScreenSize.Small\r\n            )\r\n        )\r\n    )\r\n)",
+        "Property": "ScreenSize",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "1",
+        "Property": "ZIndex",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Y",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "X",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Width",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "0",
+        "Property": "Height",
+        "RuleProviderType": "Unknown"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "RGBA(0, 0, 0, 0)",
+        "Property": "Fill",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "true",
+        "Property": "ChildTabPriority",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Design",
+        "InvariantScript": "true",
+        "Property": "EnableChildFocus",
+        "RuleProviderType": "System"
+      }
+    ]
+  },
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "cmp_ScreenFunctions",
+    "TemplateGuid": "986c80f05c5d418e862659d0b63c9c9e"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "AppHeight",
+      "Hidden": false,
+      "Name": "AppHeight",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "Converts pixel height to PowerApps Screen Size",
+      "Type": "{\"Version\":\"1.327\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "AppHeightBreakPoints",
+      "Hidden": false,
+      "Name": "AppHeightBreakPoints",
+      "PropertyDataTypeKey": "Record",
+      "Tooltip": "Break points for app height",
+      "Type": "{\"Version\":\"1.327\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Large\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Medium\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Small\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "ScreenSize",
+      "Hidden": true,
+      "Name": "ScreenSize",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "Returns the screen size",
+      "Type": "{\"Version\":\"1.327\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638121544811704531",
+  "Name": "986c80f05c5d418e862659d0b63c9c9e",
+  "OverridableProperties": {},
+  "Version": "638017046373635898"
+}
